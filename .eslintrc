@@ -1,0 +1,662 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 2022,
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "env": {
+        "es2021": true,
+        "node": true
+    },
+    "globals": {
+        "window": "readonly"
+    },
+    "extends": [
+        "prettier"
+    ],
+    "plugins": [
+        "prettier"
+    ],
+    "rules": {
+        // prettier
+        "prettier/prettier": [
+            "error"
+        ],
+        // [ 可能会存在的错 start ]
+        // 关闭禁止使用 console
+        "no-console": "off",
+        // 关闭禁止使用debugger
+        "no-debugger": "off",
+        // 关闭禁止在嵌套块中出现变量声明或 function 声明
+        "no-inner-declarations": "off",
+        // 不知道啥意思，不过ESLint推荐开启了
+        "no-misleading-character-class": "off",
+        // 看不懂，先禁用了，ESLint推荐开启了
+        "require-atomic-updates": "off",
+        // 禁止使用无限for循环
+        "for-direction": [
+            "error"
+        ],
+        // new Promise 参数不能是异步函数
+        "no-async-promise-executor": [
+            "error"
+        ],
+        // 不能在循环中出现await，可以使用 Promise.all()
+        "no-await-in-loop": [
+            "error"
+        ],
+        // 禁止和 -0 比较
+        "no-compare-neg-zero": [
+            "error"
+        ],
+        // 禁止条件表达式中出现赋值操作符( = )
+        "no-cond-assign": [
+            "error"
+        ],
+        // 禁止在正则表达式中使用控制字符串
+        "no-control-regex": [
+            "error"
+        ],
+        // 禁止 function 定义中出现重复参数名
+        "no-dupe-args": [
+            "error"
+        ],
+        // 禁止对象字面量表达式中出现重复的Key {a:1,a:2}
+        "no-dupe-keys": [
+            "error"
+        ],
+        // 禁止在 switch 选择中出现重复的 case 关键字
+        "no-duplicate-case": [
+            "error"
+        ],
+        // 禁止正则表达式中使用空的字符集
+        "no-empty-character-class": [
+            "error"
+        ],
+        // 禁止对 catch 子句的参数重新赋值
+        "no-ex-assign": [
+            "error"
+        ],
+        // 禁止不必要的布尔类型转换
+        "no-extra-boolean-cast": [
+            "error"
+        ],
+        // 禁止不必要的分号
+        "no-extra-semi": [
+            "error"
+        ],
+        // 禁止对 function "声明" 重新赋值
+        "no-func-assign": [
+            "error"
+        ],
+        // 禁止 RegExp 构造函数中出现无效的正则表达式字符串
+        "no-invalid-regexp": [
+            "error"
+        ],
+        // 禁止出现不规则的空白
+        "no-irregular-whitespace": [
+            "error"
+        ],
+        // 禁止把全局对象作为函数调用
+        // var math = Math(); var json = JSON();
+        "no-obj-calls": [
+            "error"
+        ],
+        // 禁止直接调用 Object.prototypes 的内置属性
+        // bad: foo.hasValue("bar");
+        // good: Object.prototype.hasValue(foo, "bar")
+        "no-prototype-builtins": [
+            "error"
+        ],
+        // 禁止正则表达式字面量中出现多个连续空格
+        "no-regex-spaces": [
+            "error"
+        ],
+        // 禁止稀疏数组 [1,,3] [,]
+        "no-sparse-arrays": [
+            "error"
+        ],
+        // 禁止在常规字符串中出现 模板字面量 占位符语法
+        // bad: "a ${value} c";
+        // good: `a ${value} c`;
+        "no-template-curly-in-string": [
+            "error"
+        ],
+        // 禁止出现奇怪的多行表达式，反正报错就是多行表达式写的很怪
+        "no-unexpected-multiline": [
+            "error"
+        ],
+        // 禁止在 return、throw、continue、break 语句之后出现无法达到的代码
+        "no-unreachable": [
+            "error"
+        ],
+        // 禁止在 finally 语句中出现流程控制语句
+        "no-unsafe-finally": [
+            "error"
+        ],
+        // 禁止对关系运算符左值使用否定操作符(!)
+        // bad：if(!a in object);
+        // good: if( ! (a in object));
+        "no-unsafe-negation": [
+            "error"
+        ],
+        // 必须使用 isNaN() 方法来检查 NaN
+        "use-isnan": [
+            "error"
+        ],
+        // typeof 表达式必须与有效字符串比较，允许与另一个 typeof 表达式比较
+        "valid-typeof": [
+            "error",
+            {
+                "requireStringLiterals": true
+            }
+        ],
+        // getter函数必须存在return关键字，允许直接return
+        "getter-return": [
+            "error",
+            {
+                "allowImplicit": true
+            }
+        ],
+        // 禁止条件表达式中出现常量，允许在循环中使用，如：while(true)
+        "no-constant-condition": [
+            "error",
+            {
+                "checkLoops": false
+            }
+        ],
+        // 禁止出现空语句夸块，可以写入注释，允许空的 catch 语句块
+        "no-empty": [
+            "error",
+            {
+                "allowEmptyCatch": true
+            }
+        ],
+        // 禁止不必要的括号,只检查函数表达式
+        "no-extra-parens": [
+            "error",
+            "functions"
+        ],
+        // [ 可能会存在的错 end ]
+        // [ 最佳实践 start ]
+        // 指定程序中允许的最大环路复杂度（判断或循环最多允许判定数量）
+        "complexity": [
+            "off",
+            12
+        ],
+        // 不要求在类（class）中必须使用 this 关键字
+        "class-methods-use-this": "off",
+        // 不要求 return 语句必须指定返回值，允许隐式 return （undefined）
+        "consistent-return": "off",
+        // 不要求 switch 语句中存在 default 分支
+        "default-case": "off",
+        // 不要求在 for in 语句中必须存在一个 if 语句
+        "guard-for-in": "off",
+        // 不限制单个文件中 class 的最大数量
+        "max-classes-per-file": "off",
+        // 没懂，先禁用了
+        "no-div-regex": "off",
+        // 允许出现空函数，在可能存在的错误中已经定义了函数块中可以写注释
+        "no-empty-function": "off",
+        // 禁止不需要的标签（没懂，先关闭了）
+        "no-extra-label": "off",
+        // 允许对原生对象或只读全局对象进行赋值(暂时的，后面出问题在修改)
+        "no-global-assign": "off",
+        // 允许使用短符号进行类型转换
+        "no-implicit-coercion": "off",
+        // 允许在全局范围中声明变量和声明 function (主要为了方便调试，有其他规则限制全局声明)
+        "no-implicit-globals": "off",
+        // 允许 this 关键字出现在类和对象之外的地方，例如 function
+        "no-invalid-this": "off",
+        // 允许多余的 return 语句，类似配置由其他规则限制
+        "no-useless-return": "off",
+        // 允许随意嵌套块（嵌套块由其他规则定义）
+        "no-lone-blocks": "off",
+        // 允许循环中出现函数声明（循环函数声明由其他规则定义）
+        "no-loop-func": "off",
+        // 允许使用魔术数字
+        "no-magic-numbers": "off",
+        // 允许使用 new Function 来创建函数
+        "no-new-func": "off",
+        // 允许对 functio 参数进行重新赋值
+        // 这也许会导致副作用的产生，不过还是暂时关闭了
+        "no-param-reassign": "off",
+        // 允许使用对象的某些属性
+        "no-restricted-properties": "off",
+        // 允许在 return 语句中使用赋值语句
+        "no-return-assign": "off",
+        // 允许 return 不必要的 await（忽略这种状态下的返回值）
+        "no-return-await": "off",
+        // 允许使用 javascript:url
+        "no-script-url": "off",
+        // 允许自我赋值
+        "no-self-assign": "off",
+        // 允许出现未使用的表达式, 通过其他工具提示该表达式未使用
+        "no-unused-expressions": "off",
+        // 允许出现未使用的标签，通过其他工具提示该标签未使用
+        "no-unused-labels": "off",
+        // 允许存在没用的 catch 子句
+        "no-useless-catch": "off",
+        // 允许普通字符串与模板字符串拼接
+        "no-useless-concat": "off",
+        // 不检查转义字符
+        "no-useless-escape": "off",
+        // 允许使用 void 操作符
+        "no-void": "off",
+        // 允许在注释中使用特殊的警告语句
+        "no-warning-comments": "off",
+        // 不检查正则表达式中使用命名捕获
+        "prefer-named-capture-group": "off",
+        // 不要求使用 Error 对象作为 Promise 的拒绝原因
+        "prefer-promise-reject-errors": "off",
+        // 允许在 parseInt() 方法中使用基数参数
+        "radix": "off",
+        // 允许使用不带 await 表达式的 async 函数
+        "require-await": "off",
+        // 不检查在 RegExp 中使用 u 标志
+        "require-unicode-regexp": "off",
+        // 不检查 IIFE 使用括号括起来
+        "wrap-iife": "off",
+        // 不检查 “Yoda” 条件
+        "yoda": "off",
+        // 使用 alert confirm prompt 方法的时候会警告不会报错
+        "no-alert": [
+            "warn"
+        ],
+        // 允许使用多行字符串，不会报错，但会警告
+        "no-multi-str": [
+            "warn"
+        ],
+        // 要求所有的 var 声明必须出现在该作用域的顶部
+        "vars-on-top": [
+            "error"
+        ],
+        // 禁止使用 new 关键字之后没有进行赋值操作
+        "no-new": [
+            "error"
+        ],
+        // 禁止对 String Number Boolean 使用 new 关键字
+        "no-new-wrappers": [
+            "error"
+        ],
+        // 禁止使用 with 语句
+        "no-with": [
+            "error"
+        ],
+        // 禁止八进制的字面量
+        "no-octal": [
+            "error"
+        ],
+        // 禁止在字符串中使用八进制转义
+        "no-octal-escape": [
+            "error"
+        ],
+        // 禁止使用 .call() 和 .apply()
+        "no-useless-call": [
+            "error"
+        ],
+        // 强制要求变量的使用与定义在相同的作用域中
+        "block-scoped-var": [
+            "error"
+        ],
+        // 禁用 arguments.caller 或 arguments.callee，ES5已经弃用
+        "no-caller": [
+            "error"
+        ],
+        // 不允许在case子句中使用词法声明（没懂，不过ESLint推荐禁用）
+        "no-case-declarations": [
+            "error"
+        ],
+        // 禁止使用空解构模式
+        "no-empty-pattern": [
+            "error"
+        ],
+        // 与 null 比较必须使用强类型比较（ === !== ）
+        "no-eq-null": [
+            "error"
+        ],
+        // 禁止多次声明同一变量
+        "no-redeclare": [
+            "error"
+        ],
+        // 禁止使用 __proto__ 属性
+        "no-proto": [
+            "error"
+        ],
+        // 禁止使用 eval() 方法
+        "no-eval": [
+            "error"
+        ],
+        // 禁止使用与 eval() 类似的方法
+        "no-implied-eval": [
+            "error"
+        ],
+        // 禁止扩展原生类型
+        "no-extend-native": [
+            "error"
+        ],
+        // 禁止不必要的 .bind() 调用
+        "no-extra-bind": [
+            "error"
+        ],
+        // 禁止 case 语句落空
+        "no-fallthrough": [
+            "error"
+        ],
+        // 禁止在数字字面量之前或之后使用小数点（字符串不作限制）
+        // bad: const num = .5; const num = 5.;
+        // good: const num = 0.5; const num = 5.0;
+        "no-floating-decimal": [
+            "error"
+        ],
+        // 禁止使用 __iterator__ 属性
+        "no-iterator": [
+            "error"
+        ],
+        // 禁止自身比较
+        "no-self-compare": [
+            "error"
+        ],
+        // 禁止逗号操作符
+        "no-sequences": [
+            "error"
+        ],
+        // 禁止抛出异常时使用字面量, 推荐 new Error("字面量")
+        "no-throw-literal": [
+            "error"
+        ],
+        // 禁止永远不变的循环条件, 这能避免死循环的出现
+        "no-unmodified-loop-condition": [
+            "error"
+        ],
+        // 强制要求使用数组方法的回调函数中必须出现 return 关键字
+        // 允许直接 return (隐式返回 undenfind)
+        "array-callback-return": [
+            "error",
+            {
+                "allowImplicit": true
+            }
+        ],
+        // 禁止使用多个空格，允许忽略行尾或注释之前的空格
+        "no-multi-spaces": [
+            "error",
+            {
+                "ignoreEOLComments": false
+            }
+        ],
+        // 禁止 if 语句中 return 之后出现 eslint 块(可能有歧义，后面再改)
+        "no-else-return": [
+            "error",
+            {
+                "allowElseIf": false
+            }
+        ],
+        // 禁止使用 label 语句
+        "no-labels": [
+            "error",
+            {
+                "allowLoop": false,
+                "allowSwitch": false
+            }
+        ],
+        // 强制要求 setter 和 getter 成对出现
+        // 只定义 setter 会警告
+        // 只定义 getter 会警告
+        "accessor-pairs": [
+            "error",
+            {
+                "setWithoutGet": true,
+                "getWithoutSet": true
+            }
+        ],
+        /**
+         * 尽可能使用点号(.)
+         * 允许：
+         * const user = {"name":"zz", "age":14};
+         * const userAge = user["age"];
+         */
+        "dot-notation": [
+            "error",
+            {
+                "allowKeywords": false
+            }
+        ],
+        /**
+         * 强制点符号(.)之前和之后使用一致的换行，允许一下换行规则
+         * bad:
+         * const zz = user.
+         *            name
+         * good:
+         * const zz = user
+         *            .name
+         */
+        "dot-location": [
+            "error",
+            "property"
+        ],
+        // 强制控制语句中必须使用风格一致的括号，允许关键字与表达式同行时不使用括号
+        "curly": [
+            "error",
+            "multi-line"
+        ],
+        // 除了(比较字面量的值、typeof 的值、和 null) 之外必须使用 === 或 !==
+        "eqeqeq": [
+            "error",
+            "smart"
+        ],
+        // [ 最佳实践 end ]
+        // [ 变量相关 start ]
+        // 不检查 var 声明初始化
+        "init-declarations": "off",
+        // 不检查标签与变量同名的情况，其他规则限制了标签的使用规则
+        "no-label-var": "off",
+        // 不检查特定的全局变量（看了ESLint说明，没懂什么意思，先忽略）
+        "no-restricted-globals": "off",
+        // 允许变量声明与外层作用域的变量同名
+        "no-shadow": "off",
+        // 允许未声明的变量(没看懂，ESLint推荐开启了，先忽略掉)
+        "no-undef": "off",
+        // 禁止删除变量
+        "no-delete-var": [
+            "error"
+        ],
+        // 禁止将标识符定义为不可用的名字（不能使用保留的关键字）
+        "no-shadow-restricted-names": [
+            "error"
+        ],
+        // 禁止将变量初始化为 undefined
+        "no-undef-init": [
+            "error"
+        ],
+        // 禁止将 undefined 作为标识符
+        "no-undefined": [
+            "error"
+        ],
+        // 禁止出现未使用过的变量，如果需要可以使用 "_"（下划线）来标识变量，让eslint忽略它
+        "no-unused-vars": [
+            "error",
+            {
+                "varsIgnorePattern": "^_",
+                "argsIgnorePattern": "^_",
+                "caughtErrorsIgnorePattern": "^_"
+            }
+        ],
+        // 禁止在变量定义之前使用它们，允许 function 和 class 在定义之前使用（默认会提升）
+        "no-use-before-define": [
+            "error",
+            {
+                "functions": false,
+                "classes": false,
+                "variables": true
+            }
+        ],
+        // [ 变量相关 end ]
+        // [ NodeJS 或者 CommonJS相关 start ]
+        // 不检查 required() 方法出现的作用域
+        "global-require": "off",
+        // ** 不要求回调函数中由容错处理，后面有需要会重新定义该规则
+        "handle-callback-err": "off",
+        // 允许使用 Buffer() 构造函数，兼容低版本 NodeJS
+        "no-buffer-constructor": "off",
+        // 允许对 __dirname 和 __filename 进行字符串拼接
+        "no-path-concat": "off",
+        // 允许使用 process.env 来得到环境变量
+        "no-process-env": "off",
+        // 允许使用 process.exit() 来结束进程
+        "no-process-exit": "off",
+        // 允许通过 require 加载指定的魔铠
+        "no-restricted-modules": "off",
+        // 允许使用同步方法
+        "no-sync": "off",
+        // [ NodeJS 或者 CommonJS相关 end ]
+        // [ ES6相关 start ]
+        // 不要求 generator 函数中的 * 号周围使用一致的空格
+        "generator-star-spacing": "off",
+        // 不检查比较操作符是否容易混淆问题
+        "no-confusing-arrow": "off",
+        // 不检查使用指定的 import 加载模块
+        "no-restricted-imports": "off",
+        // 不检查是否在对象中使用计算属性
+        "no-useless-computed-key": "off",
+        // 不检查构造函数的必要性
+        "no-useless-constructor": "off",
+        // 不检查对象字面量中方法和属性是否使用简写语法
+        "object-shorthand": "off",
+        // 不检查解构的使用方式
+        "prefer-destructuring": "off",
+        // 不检查 parseInt() 和 Number.parseInt() 方法的参数字面量规则
+        "prefer-numeric-literals": "off",
+        // 不检查 generator 函数中是否存在 yield
+        "require-yield": "off",
+        // 不检查剩余和扩展运算符与表达式之间是否存在空格
+        "rest-spread-spacing": "off",
+        // 不检查模板字符串表达式周围的空格问题
+        "template-curly-spacing": "off",
+        // 不检查在 yield* 表达式中 * 周围的空格使用问题
+        "yield-star-spacing": "off",
+        // 允许箭头函数的函数体不适用大括号
+        "arrow-body-style": "off",
+        // 要求使用模板字符串而不是字符串拼接（不会报错而是警告!）
+        "prefer-template": [
+            "warn"
+        ],
+        // 要求使用 let 或者 const 而不是 var
+        "no-var": [
+            "error"
+        ],
+        // 禁止修改 const 声明的变量
+        "no-const-assign": [
+            "error"
+        ],
+        // 要求箭头函数的参数部分必须使用圆括号
+        "arrow-parens": [
+            "error"
+        ],
+        // 要求使用剩余参数而不是 arguments 对象 (...args)
+        "prefer-rest-params": [
+            "error"
+        ],
+        // 要求使用扩展运算符而不是 .apply() 方法
+        "prefer-spread": [
+            "error"
+        ],
+        // 要求在构造函数中必须出现 super() 的调用
+        "constructor-super": [
+            "error"
+        ],
+        // 禁止构造函数中 调用 super() 之前使用 this 或者 super
+        "no-this-before-super": [
+            "error"
+        ],
+        // 禁止修改类声明的变量
+        "no-class-assign": [
+            "error"
+        ],
+        // 禁止类成员中出现重复的名称
+        "no-dupe-class-members": [
+            "error"
+        ],
+        // 禁止对 Symbol 使用 new 关键字
+        "no-new-symbol": [
+            "error"
+        ],
+        // 要求 symbol 使用的时候增加描述
+        "symbol-description": [
+            "error"
+        ],
+        // 禁止在使用 [import、export、解构赋值] 的时候将引用重命名为相同的名字
+        "no-useless-rename": [
+            "error"
+        ],
+        // 强制要求箭头函数的箭头前后使用一致的空格
+        "arrow-spacing": [
+            "error",
+            {
+                "before": true,
+                "after": true
+            }
+        ],
+        // 要求回调函数中使用箭头函数
+        "prefer-arrow-callback": [
+            "error",
+            {
+                "allowNamedFunctions": false,
+                "allowUnboundThis": true
+            }
+        ],
+        // 要求使用 const 声明的那些声明后不再被修改的变量
+        // 没太懂什么意思，总之 const 声明对象或数组，解构之后还是 const 不能直接修改;
+        "prefer-const": [
+            "error",
+            {
+                "destructuring": "all",
+                "ignoreReadBeforeAssign": true
+            }
+        ],
+        /**
+         * 禁止重复的模块导入, 不允许使用 export ... from
+         * bad:
+         * import { a } from "module";
+         * export { b } from "module";
+         * good：
+         * import { a, b } from "module";
+         * export { b }
+         */
+        "no-duplicate-imports": [
+            "error",
+            {
+                "includeExports": true
+            }
+        ],
+        /**
+        * **强制模块中的 import 排序(这个规则后续在做调整)
+        * ignoreCase: 忽略大小写
+        * ignoreDeclarationSort: 忽略声明语句的排序
+        * ignoreMemberSort: 忽略多个成员属性声明语句的排序
+        * memberSyntaxSortOrder: 不同风格的排列顺序
+        *   -none - import 没有输出绑定的模块。
+            -all - import 所有经输出绑定的成员。
+            -multiple - import 多个成员。
+            -single - import 单个成员。
+        */
+        "sort-imports": [
+            "error",
+            {
+                "ignoreCase": false,
+                "ignoreDeclarationSort": true,
+                "ignoreMemberSort": true,
+                "memberSyntaxSortOrder": [
+                    "none",
+                    "all",
+                    "multiple",
+                    "single"
+                ]
+            }
+        ]
+        // [ ES6相关 end ]
+        // [ 代码风格相关 start ]
+        // [ 代码风格相关 end ]
+    }
+}

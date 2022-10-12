@@ -1,0 +1,23 @@
+// 滚动条样式
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+    box-shadow: inset006pxrgba(16, 237, 179, 0.3);
+    border-radius: 10px;
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(98, 201, 242);
+    box-shadow: inset006pxrgba(16, 237, 179, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(98, 201, 242);
+}

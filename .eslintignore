@@ -1,0 +1,16 @@
+.vscode/
+dist/
+node_modules/
+public/
+settings.json
+package.json
+pnpm-lock.yaml
+.eslintrc
+.prettierrc
+.prettierrc.json
+
+*.html
+*.vue
+*.json
+*.proto
+*.md

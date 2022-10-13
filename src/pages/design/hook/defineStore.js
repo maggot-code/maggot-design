@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 10:44:26
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 13:53:10
+ * @LastEditTime: 2022-10-13 14:39:51
  * @Description:
  */
 import { provide, shallowRef } from 'vue';
@@ -35,8 +35,9 @@ function storeEntity() {
     function get(key) {
         return getHouse().value[key];
     }
-    function set(key, value) {
-        update({ [key]: value });
+    function set(value) {
+        const key = storeKey();
+        update({ [key.value]: value });
     }
     function del(key) {
         if (isNil(key)) {

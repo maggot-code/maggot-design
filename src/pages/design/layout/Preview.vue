@@ -3,12 +3,13 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:49:14
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 10:33:44
+ * @LastEditTime: 2022-10-13 14:51:18
  * @Description: 
 -->
 <script>
-import { onMounted } from "vue";
+import { onMounted, watchEffect } from "vue";
 import { defineForm, useFormFile, useFormRemote } from "@/biz/Form";
+import { useStore } from "../hook/useStore";
 import { usePreview } from "../hook/usePreview";
 import SchemaData from "@/assets/json/form.v1.json";
 
@@ -22,6 +23,7 @@ export default {
     components: {},
     props: {},
     setup(props) {
+        const { store } = useStore();
         const preview = usePreview();
         const config = {
             define: defineConfig
@@ -30,9 +32,12 @@ export default {
         const file = useFormFile({ config, form });
         const remote = useFormRemote({ config, form });
 
-        onMounted(() => {
-            form.schema.setup(SchemaData);
+        watchEffect(() => {
+            const cellSchema = store.keys().map(key => store.get(key).toSchema());
+
+            form.schema.setup({ formSchema: {}, cellSchema });
         });
+        onMounted(() => { });
         return {
             ...form.template,
             file: file.template,

@@ -3,34 +3,37 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:48:50
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 13:56:22
+ * @LastEditTime: 2022-10-13 14:42:39
  * @Description: 
 -->
 <script setup>
+import { unref } from "vue";
 import { useStore } from "../hook/useStore";
 import { useMatter } from "../hook/useMatter";
 
-import { v4 as uuid } from "uuid";
-
-useMatter();
 const { store } = useStore();
+const { select } = useMatter();
 
-function add() {
-    const key = uuid();
-    const value = Date.now();
-    store.set(key, value);
+function setupStore() {
+    const [target, usable] = unref(select.element);
+    if (!usable) return;
+
+    store.set(target);
 }
 </script>
 
 <template>
     <div class="design-matter">
-        <h1>物料</h1>
-        <el-button @click="add">增加</el-button>
+        <el-select v-model="select.value.value" placeholder="请选择">
+            <el-option v-for="item in select.options" :key="item.id" :label="item.label" :value="item.id">
+            </el-option>
+        </el-select>
+        <el-button @click="setupStore">增加</el-button>
 
-        <div v-for="(key) in store.keys()">
-            <span>{{store.get(key)}}</span>
-            <el-button size="mini" @click="store.del(key)">删除</el-button>
-        </div>
+        <template v-for="(key) in store.keys()">
+            <p :key="key">{{store.get(key).label}}</p>
+            <el-button @click="store.del(key)">删除</el-button>
+        </template>
     </div>
 </template>
 

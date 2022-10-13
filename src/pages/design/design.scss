@@ -45,6 +45,8 @@ $borderRadius: 8px;
 
         &-view {
             width: calc(100% - $viewWidth);
+            overflow-x: hidden;
+            overflow-y: auto;
         }
 
         &-setter {

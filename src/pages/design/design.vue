@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:30:03
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 11:25:46
+ * @LastEditTime: 2022-10-13 17:06:34
  * @Description: 
 -->
 <script setup>
@@ -11,13 +11,18 @@ import DesignMatter from "./layout/Matter.vue";
 import DesignPreview from "./layout/Preview.vue";
 import DesignSetter from "./layout/Setter.vue";
 
-import { defineStore, defineMatter, definePreview, defineSetter } from "./hook/define";
+import { onUnmounted, provide } from "vue";
+import { defineForm } from "@/biz/Form";
+import { releaseMatter } from "./store/Warehouse";
+import { FormSymbolKeyword } from "./shared/context";
 
-const store = defineStore();
-const matter = defineMatter(store);
-const preview = definePreview(store);
-const setter = defineSetter(store);
+const form = defineForm();
 
+provide(FormSymbolKeyword, form);
+
+onUnmounted(() => {
+    releaseMatter();
+});
 </script>
 
 <template>

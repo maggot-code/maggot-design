@@ -1,34 +1,36 @@
 /*
  * @FilePath: \maggot-design\src\pages\design\hook\useMatter.js
  * @Author: maggot-code
- * @Date: 2022-10-13 09:54:01
+ * @Date: 2022-10-13 16:57:12
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 14:28:14
+ * @LastEditTime: 2022-10-13 17:31:11
  * @Description:
  */
-import { inject, ref, unref, computed } from 'vue';
-import { MatterSymbolName } from '../shared/context';
+import { v4 as uuid } from 'uuid';
+import { unref, computed } from 'vue';
+import { concat } from 'lodash';
+import { matterHouse } from '../store/Warehouse';
 
-function setupSelect(matter) {
-    const [{ id: defautValue }] = matter.select;
-    const value = ref(defautValue);
+export function useMatter(form, select) {
+    console.log(form);
     const element = computed(() => {
-        const bind = matter.select.find(({ id }) => id === unref(value));
-        return matter.get(bind);
+        return matterHouse.get(unref(select.value));
     });
 
+    function append() {
+        const { cellSchema, formSchema } = form.template;
+        const target = Object.assign({}, unref(element), { field: uuid() });
+        form.schema.setup({
+            formSchema: unref(formSchema),
+            cellSchema: concat(unref(cellSchema), [target]),
+        });
+    }
+
     return {
-        value,
+        form,
         element,
-        options: matter.select,
+        append,
     };
-}
-
-export function useMatter() {
-    const matter = inject(MatterSymbolName);
-    const select = setupSelect(matter);
-
-    return { matter, select };
 }
 
 export default useMatter;

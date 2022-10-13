@@ -3,14 +3,13 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:49:14
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 14:51:18
+ * @LastEditTime: 2022-10-13 17:31:57
  * @Description: 
 -->
 <script>
-import { onMounted, watchEffect } from "vue";
-import { defineForm, useFormFile, useFormRemote } from "@/biz/Form";
-import { useStore } from "../hook/useStore";
-import { usePreview } from "../hook/usePreview";
+import { onMounted, inject } from "vue";
+import { useFormFile, useFormRemote } from "@/biz/Form";
+import { FormSymbolKeyword } from "../shared/context";
 import SchemaData from "@/assets/json/form.v1.json";
 
 const UploadKey = "";
@@ -23,21 +22,16 @@ export default {
     components: {},
     props: {},
     setup(props) {
-        const { store } = useStore();
-        const preview = usePreview();
         const config = {
             define: defineConfig
         };
-        const form = defineForm();
+        const form = inject(FormSymbolKeyword);
         const file = useFormFile({ config, form });
         const remote = useFormRemote({ config, form });
 
-        watchEffect(() => {
-            const cellSchema = store.keys().map(key => store.get(key).toSchema());
-
-            form.schema.setup({ formSchema: {}, cellSchema });
+        onMounted(() => {
+            form.schema.setup(SchemaData);
         });
-        onMounted(() => { });
         return {
             ...form.template,
             file: file.template,
@@ -58,7 +52,6 @@ export default {
 <style scoped lang='scss'>
 .design-preview {
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    height: auto;
 }
 </style>

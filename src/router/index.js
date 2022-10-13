@@ -1,9 +1,9 @@
 /*
- * @FilePath: \vue2.7_workflow\src\router\index.js
+ * @FilePath: \maggot-design\src\router\index.js
  * @Author: maggot-code
  * @Date: 2022-07-25 16:40:32
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-07-28 17:17:59
+ * @LastEditTime: 2022-10-13 16:04:43
  * @Description:
  */
 import Vue from 'vue';
@@ -33,7 +33,7 @@ export function setupRouter() {
         routes: [
             {
                 path: '/',
-                redirect: '/home',
+                redirect: '/design',
             },
             ...HomeIndexRoute,
         ],

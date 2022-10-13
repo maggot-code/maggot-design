@@ -1,15 +1,17 @@
 /*
  * @FilePath: \maggot-design\src\pages\design\shared\context.js
  * @Author: maggot-code
- * @Date: 2022-10-13 09:51:24
+ * @Date: 2022-10-13 15:41:34
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 11:35:35
+ * @LastEditTime: 2022-10-13 17:06:11
  * @Description:
  */
-export const StoreSymbolName = Symbol('Store');
+export const FormSymbolKeyword = Symbol('DesignForm');
 
-export const MatterSymbolName = Symbol('Matter');
+export const StoreSymbolKeyword = Symbol('DesignStore');
 
-export const PreviewSymbolName = Symbol('Preview');
+export const MatterSymbolKeyword = Symbol('DesignMatter');
 
-export const SetterSymbolName = Symbol('Setter');
+export const PreviewSymbolKeyword = Symbol('DesignPreview');
+
+export const SetterSymbolKeyword = Symbol('DesignSetter');

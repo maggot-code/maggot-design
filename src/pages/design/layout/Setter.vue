@@ -3,14 +3,10 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:49:30
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 10:26:06
+ * @LastEditTime: 2022-10-13 15:40:17
  * @Description: 
 -->
-<script setup>
-import { useSetter } from "../hook/useSetter";
-
-const setter = useSetter();
-</script>
+<script setup></script>
 
 <template>
     <h1>选中控件的属性设置</h1>

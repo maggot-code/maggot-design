@@ -3,37 +3,37 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:48:50
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 14:42:39
+ * @LastEditTime: 2022-10-13 17:25:02
  * @Description: 
 -->
 <script setup>
-import { unref } from "vue";
-import { useStore } from "../hook/useStore";
+import { inject } from "vue";
+import { useMatterSelect } from "../hook/useMatterSelect";
 import { useMatter } from "../hook/useMatter";
+import { FormSymbolKeyword } from "../shared/context";
 
-const { store } = useStore();
-const { select } = useMatter();
+const form = inject(FormSymbolKeyword);
+const select = useMatterSelect();
+const matter = useMatter(form, select);
 
-function setupStore() {
-    const [target, usable] = unref(select.element);
-    if (!usable) return;
-
-    store.set(target);
-}
+const { cellSchema } = form.template;
+console.log(cellSchema);
 </script>
 
 <template>
     <div class="design-matter">
-        <el-select v-model="select.value.value" placeholder="请选择">
-            <el-option v-for="item in select.options" :key="item.id" :label="item.label" :value="item.id">
+        <el-select :value="select.value" @change="select.setupValue">
+            <el-option v-for="item in select.options" :key="item.value" :label="item.label" :value="item.value">
             </el-option>
         </el-select>
-        <el-button @click="setupStore">增加</el-button>
+        <p>{{matter.element.value.keyword}}</p>
+        <el-button @click="matter.append">创建</el-button>
 
-        <template v-for="(key) in store.keys()">
-            <p :key="key">{{store.get(key).label}}</p>
-            <el-button @click="store.del(key)">删除</el-button>
-        </template>
+        <ul>
+            <template v-for="(item) in cellSchema">
+                <li :key="item.field">{{item.uiSchema.label}}</li>
+            </template>
+        </ul>
     </div>
 </template>
 

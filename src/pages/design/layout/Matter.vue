@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:48:50
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 17:25:02
+ * @LastEditTime: 2022-10-13 17:41:15
  * @Description: 
 -->
 <script setup>
@@ -17,7 +17,6 @@ const select = useMatterSelect();
 const matter = useMatter(form, select);
 
 const { cellSchema } = form.template;
-console.log(cellSchema);
 </script>
 
 <template>
@@ -31,7 +30,10 @@ console.log(cellSchema);
 
         <ul>
             <template v-for="(item) in cellSchema">
-                <li :key="item.field">{{item.uiSchema.label}}</li>
+                <li :key="item.field" style="display: flex;justify-content: space-between; margin-bottom: 12px;">
+                    <p>{{item.uiSchema.label}}</p>
+                    <el-button size="mini" @click="matter.remove(item)">删除</el-button>
+                </li>
             </template>
         </ul>
     </div>

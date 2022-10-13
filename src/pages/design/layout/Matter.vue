@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:48:50
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 17:51:12
+ * @LastEditTime: 2022-10-13 18:14:44
  * @Description: 
 -->
 <script setup>
@@ -30,10 +30,11 @@ const { cellSchema } = form.template;
         </section>
 
         <section class="design-matter-card">
-            <template v-for="(item) in cellSchema">
-                <div :key="item.field" style="display: flex;justify-content: space-between; margin-bottom: 12px;">
+            <template v-for="(item,index) in cellSchema">
+                <div class="design-matter-card-item" :class="matter.activeClassname(index)" :key="item.field"
+                    @click="matter.active(item,index)">
                     <p>{{item.uiSchema.label}}</p>
-                    <el-button size="mini" @click="matter.remove(item)">删除</el-button>
+                    <el-button size="mini" @click.stop="matter.remove(item)">删除</el-button>
                 </div>
             </template>
         </section>
@@ -64,6 +65,35 @@ const { cellSchema } = form.template;
         overflow-x: hidden;
         overflow-y: auto;
         padding-right: 6px;
+
+        &-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 36px;
+            padding: 0 12px;
+            border: 1px dashed transparent;
+            border-radius: 4px;
+            background-color: #f5f7fa;
+            cursor: pointer;
+            transition: all .3s;
+            box-sizing: border-box;
+
+            &:hover {
+                background-color: pink;
+                border-color: #666;
+            }
+
+            &+& {
+                margin-top: 6px;
+            }
+        }
+
+        &-active {
+            background-color: red;
+            border-color: #333;
+        }
     }
 }
 </style>

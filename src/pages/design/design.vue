@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:30:03
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 10:25:52
+ * @LastEditTime: 2022-10-13 11:25:46
  * @Description: 
 -->
 <script setup>
@@ -11,11 +11,12 @@ import DesignMatter from "./layout/Matter.vue";
 import DesignPreview from "./layout/Preview.vue";
 import DesignSetter from "./layout/Setter.vue";
 
-import { defineMatter, definePreview, defineSetter } from "./hook/define";
+import { defineStore, defineMatter, definePreview, defineSetter } from "./hook/define";
 
-const matter = defineMatter();
-const preview = definePreview();
-const setter = defineSetter();
+const store = defineStore();
+const matter = defineMatter(store);
+const preview = definePreview(store);
+const setter = defineSetter(store);
 
 </script>
 

@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:48:50
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 17:41:15
+ * @LastEditTime: 2022-10-13 17:51:12
  * @Description: 
 -->
 <script setup>
@@ -20,25 +20,50 @@ const { cellSchema } = form.template;
 </script>
 
 <template>
-    <div class="design-matter">
-        <el-select :value="select.value" @change="select.setupValue">
-            <el-option v-for="item in select.options" :key="item.value" :label="item.label" :value="item.value">
-            </el-option>
-        </el-select>
-        <p>{{matter.element.value.keyword}}</p>
-        <el-button @click="matter.append">创建</el-button>
+    <main class="design-matter">
+        <section class="design-matter-control">
+            <el-select size="mini" :value="select.value" @change="select.setupValue">
+                <el-option v-for="item in select.options" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+            </el-select>
+            <el-button size="mini" @click="matter.append">创建</el-button>
+        </section>
 
-        <ul>
+        <section class="design-matter-card">
             <template v-for="(item) in cellSchema">
-                <li :key="item.field" style="display: flex;justify-content: space-between; margin-bottom: 12px;">
+                <div :key="item.field" style="display: flex;justify-content: space-between; margin-bottom: 12px;">
                     <p>{{item.uiSchema.label}}</p>
                     <el-button size="mini" @click="matter.remove(item)">删除</el-button>
-                </li>
+                </div>
             </template>
-        </ul>
-    </div>
+        </section>
+    </main>
 </template>
 
 <style scoped lang='scss'>
+.design-matter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 
+    &-control {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 24px;
+    }
+
+    &-card {
+        flex: 1;
+        width: 100%;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-right: 6px;
+    }
+}
 </style>

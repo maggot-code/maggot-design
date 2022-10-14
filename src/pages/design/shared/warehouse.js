@@ -1,9 +1,9 @@
 /*
- * @FilePath: \maggot-design\src\pages\design\store\warehouse.js
+ * @FilePath: \maggot-design\src\pages\design\shared\Warehouse.js
  * @Author: maggot-code
  * @Date: 2022-10-13 15:44:12
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 17:01:21
+ * @LastEditTime: 2022-10-14 17:31:14
  * @Description:
  */
 // import { v4 as uuid } from 'uuid';
@@ -16,9 +16,9 @@ export function releaseMatter() {
 }
 
 export function setupMatter(component) {
-    const { keyword } = component;
+    const { componentName } = component;
 
-    matterHouse.set(keyword, component);
+    matterHouse.set(componentName, component);
 }
 
 Component.forEach(setupMatter);

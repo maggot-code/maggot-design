@@ -3,22 +3,16 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 15:43:41
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-14 11:09:38
+ * @LastEditTime: 2022-10-14 17:26:08
  * @Description:
  */
 import { defineDescribe } from '../../hook/defineDescribe';
+import MoldText from './text';
+import MoldPassword from './password';
+import MoldNumber from './number';
 
-const label = '输入框';
-function defineSchema() {
-    return {};
-}
-export default defineDescribe({
-    label,
-    defineSchema,
-    componentName: 'mg-input',
-    uiSchema: {
-        label,
-        placeholder: '请填写内容',
-        col: 24,
-    },
+export default defineDescribe('输入框', MoldText, {
+    [MoldText.mold]: MoldText,
+    [MoldPassword.mold]: MoldPassword,
+    [MoldNumber.mold]: MoldNumber,
 });

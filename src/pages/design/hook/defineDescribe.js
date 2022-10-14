@@ -3,20 +3,33 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 16:06:37
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-14 11:11:04
+ * @LastEditTime: 2022-10-14 17:37:02
  * @Description:
  */
-import { v4 as uuid } from 'uuid';
+function map(target, func) {
+    const data = [];
 
-export function toSchema() {
-    return {};
+    for (const key in target) {
+        data.push(func(target[key], key, target));
+    }
+
+    return data;
 }
 
-export function defineDescribe(config) {
-    const keyword = uuid();
-    const defineSchema = config.defineSchema ?? toSchema;
+function setupMold({ mold, uiSchema }) {
+    const { label } = uiSchema;
 
-    return Object.assign({}, config ?? {}, { keyword, defineSchema });
+    return { label, value: mold };
+}
+
+export function defineDescribe(label, config, mold) {
+    const setterMold = map(mold, setupMold);
+
+    function bindMold(value) {
+        return mold[value] ?? config;
+    }
+
+    return Object.assign({}, config ?? {}, { label, setterMold, bindMold });
 }
 
 export default defineDescribe;

@@ -3,19 +3,19 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 16:15:30
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-14 11:09:59
+ * @LastEditTime: 2022-10-14 17:31:42
  * @Description:
  */
 import { ref } from 'vue';
 import { isNil } from 'lodash';
-import { matterHouse } from '../store/Warehouse';
+import { matterHouse } from '../shared/warehouse';
 
 const options = [];
 
 if (options.length <= 0) {
     matterHouse.forEach((item) => {
-        const { label, keyword: value, defineSchema } = item;
-        options.push({ label, value, defineSchema });
+        const { label, componentName: value } = item;
+        options.push({ label, value });
     });
 }
 

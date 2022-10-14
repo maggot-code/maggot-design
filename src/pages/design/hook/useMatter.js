@@ -3,13 +3,13 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 16:57:12
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-14 10:51:00
+ * @LastEditTime: 2022-10-14 16:56:40
  * @Description:
  */
 import { v4 as uuid } from 'uuid';
 import { nextTick, unref, ref, computed } from 'vue';
 import { concat, remove as lodashRemove } from 'lodash';
-import { matterHouse } from '../store/Warehouse';
+import { matterHouse } from '../shared/warehouse';
 
 const className = ['design-matter-card-active'];
 

@@ -3,18 +3,20 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:48:50
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-14 10:22:58
+ * @LastEditTime: 2022-10-14 10:51:46
  * @Description: 
 -->
 <script setup>
 import { inject } from "vue";
 import { useMatterSelect } from "../hook/useMatterSelect";
 import { useMatter } from "../hook/useMatter";
+import { useActive } from "../hook/useActive";
 import { FormSymbolKeyword } from "../shared/context";
 
 const form = inject(FormSymbolKeyword);
+const active = useActive();
 const select = useMatterSelect();
-const matter = useMatter(form, select);
+const matter = useMatter(form, select, active);
 
 const { cellSchema } = form.template;
 const { matterRefs } = matter;
@@ -32,8 +34,8 @@ const { matterRefs } = matter;
 
         <section class="design-matter-card" ref="matterRefs">
             <template v-for="(item,index) in cellSchema">
-                <div class="design-matter-card-item" :class="matter.active.setupClass(index)" :key="item.field"
-                    @click="matter.active.setup(index,item)">
+                <div class="design-matter-card-item" :class="matter.setupClass(index)" :key="item.field"
+                    @click="matter.click(index,item)">
                     <p>{{item.uiSchema.label}}</p>
                     <el-button size="mini" @click.stop="matter.remove(item)">删除</el-button>
                 </div>
@@ -77,9 +79,9 @@ const { matterRefs } = matter;
             border: 1px dashed transparent;
             border-radius: 4px;
             background-color: #f5f7fa;
-            cursor: pointer;
             transition: all .3s;
             box-sizing: border-box;
+            cursor: pointer;
 
             &:hover {
                 background-color: pink;

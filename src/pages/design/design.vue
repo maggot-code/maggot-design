@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:30:03
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 17:06:34
+ * @LastEditTime: 2022-10-14 10:44:31
  * @Description: 
 -->
 <script setup>
@@ -13,12 +13,15 @@ import DesignSetter from "./layout/Setter.vue";
 
 import { onUnmounted, provide } from "vue";
 import { defineForm } from "@/biz/Form";
+import { defineActive } from "./hook/defineActive"
 import { releaseMatter } from "./store/Warehouse";
-import { FormSymbolKeyword } from "./shared/context";
+import { FormSymbolKeyword, ActiveSymbolKeyword } from "./shared/context";
 
 const form = defineForm();
+const active = defineActive(form);
 
 provide(FormSymbolKeyword, form);
+provide(ActiveSymbolKeyword, active);
 
 onUnmounted(() => {
     releaseMatter();

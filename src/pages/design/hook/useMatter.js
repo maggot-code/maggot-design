@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 16:57:12
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-14 10:23:03
+ * @LastEditTime: 2022-10-14 10:51:00
  * @Description:
  */
 import { v4 as uuid } from 'uuid';
@@ -13,25 +13,17 @@ import { matterHouse } from '../store/Warehouse';
 
 const className = ['design-matter-card-active'];
 
-function matterActive() {
-    const index = ref(0);
-    function update(value) {
-        if (unref(index) === value) return;
-
-        index.value = value;
-    }
+function matterActive(active) {
     // index, item
-    function setup(index) {
-        update(index);
+    function click(index) {
+        active.setup(index);
     }
     function setupClass(idx) {
-        return unref(index) === idx ? className : [];
+        return unref(active.index) === idx ? className : [];
     }
 
     return {
-        index,
-        setup,
-        update,
+        click,
         setupClass,
     };
 }
@@ -58,10 +50,10 @@ function matterContainer() {
     };
 }
 
-export function useMatter(form, select) {
+export function useMatter(form, select, active) {
     const { cellSchema, formSchema } = form.template;
-    const active = matterActive();
-    const container = matterContainer(active);
+    const { click, setupClass } = matterActive(active);
+    const container = matterContainer();
     const element = computed(() => matterHouse.get(unref(select.value)));
 
     function append() {
@@ -71,7 +63,7 @@ export function useMatter(form, select) {
             formSchema: unref(formSchema),
             cellSchema: concat(unref(cellSchema), [target]),
         });
-        active.update(unref(cellSchema).length - 1);
+        active.setup(unref(cellSchema).length - 1);
         container.toBottom();
     }
     function remove(target) {
@@ -81,14 +73,15 @@ export function useMatter(form, select) {
             formSchema: unref(formSchema),
             cellSchema: lodashRemove(unref(cellSchema), setupRemove),
         });
-        active.update(0);
+        active.setup(0);
         container.toTop();
     }
 
     return {
         matterRefs: container.refs,
         form,
-        active,
+        click,
+        setupClass,
         append,
         remove,
     };

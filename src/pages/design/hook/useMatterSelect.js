@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 16:15:30
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 16:56:49
+ * @LastEditTime: 2022-10-14 11:09:59
  * @Description:
  */
 import { ref } from 'vue';
@@ -14,8 +14,8 @@ const options = [];
 
 if (options.length <= 0) {
     matterHouse.forEach((item) => {
-        const { label, keyword: value } = item;
-        options.push({ label, value });
+        const { label, keyword: value, defineSchema } = item;
+        options.push({ label, value, defineSchema });
     });
 }
 

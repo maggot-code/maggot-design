@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:48:50
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 18:14:44
+ * @LastEditTime: 2022-10-14 10:22:58
  * @Description: 
 -->
 <script setup>
@@ -17,6 +17,7 @@ const select = useMatterSelect();
 const matter = useMatter(form, select);
 
 const { cellSchema } = form.template;
+const { matterRefs } = matter;
 </script>
 
 <template>
@@ -29,10 +30,10 @@ const { cellSchema } = form.template;
             <el-button size="mini" @click="matter.append">创建</el-button>
         </section>
 
-        <section class="design-matter-card">
+        <section class="design-matter-card" ref="matterRefs">
             <template v-for="(item,index) in cellSchema">
-                <div class="design-matter-card-item" :class="matter.activeClassname(index)" :key="item.field"
-                    @click="matter.active(item,index)">
+                <div class="design-matter-card-item" :class="matter.active.setupClass(index)" :key="item.field"
+                    @click="matter.active.setup(index,item)">
                     <p>{{item.uiSchema.label}}</p>
                     <el-button size="mini" @click.stop="matter.remove(item)">删除</el-button>
                 </div>

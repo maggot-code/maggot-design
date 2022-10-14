@@ -3,62 +3,91 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 16:57:12
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 18:14:33
+ * @LastEditTime: 2022-10-14 10:23:03
  * @Description:
  */
 import { v4 as uuid } from 'uuid';
-import { unref, ref, computed } from 'vue';
+import { nextTick, unref, ref, computed } from 'vue';
 import { concat, remove as lodashRemove } from 'lodash';
 import { matterHouse } from '../store/Warehouse';
 
 const className = ['design-matter-card-active'];
 
-export function useMatter(form, select) {
-    const { cellSchema, formSchema } = form.template;
-    const element = computed(() => {
-        return matterHouse.get(unref(select.value));
-    });
+function matterActive() {
     const index = ref(0);
-    const mark = computed(() => {
-        return {};
-    });
-    function setupIndex(value) {
+    function update(value) {
         if (unref(index) === value) return;
 
         index.value = value;
     }
-    function active(item, idx) {
-        setupIndex(idx);
+    // index, item
+    function setup(index) {
+        update(index);
     }
-    function activeClassname(idx) {
+    function setupClass(idx) {
         return unref(index) === idx ? className : [];
     }
+
+    return {
+        index,
+        setup,
+        update,
+        setupClass,
+    };
+}
+
+function matterContainer() {
+    const refs = ref();
+
+    async function toLocation(target) {
+        await nextTick();
+        unref(refs).scrollTo(0, target.offsetTop);
+    }
+    function toBottom() {
+        toLocation(unref(refs).lastChild);
+    }
+    function toTop() {
+        unref(refs).scrollTo(0, 0);
+    }
+
+    return {
+        refs,
+        toLocation,
+        toBottom,
+        toTop,
+    };
+}
+
+export function useMatter(form, select) {
+    const { cellSchema, formSchema } = form.template;
+    const active = matterActive();
+    const container = matterContainer(active);
+    const element = computed(() => matterHouse.get(unref(select.value)));
+
     function append() {
         const target = Object.assign({}, unref(element), { field: uuid() });
+
         form.schema.setup({
             formSchema: unref(formSchema),
             cellSchema: concat(unref(cellSchema), [target]),
         });
-        setupIndex(unref(cellSchema).length - 1);
+        active.update(unref(cellSchema).length - 1);
+        container.toBottom();
     }
     function remove(target) {
-        const schema = lodashRemove(unref(cellSchema), (item) => {
-            return item.field !== target.field;
-        });
+        const setupRemove = (item) => item.field !== target.field;
 
-        setupIndex(0);
         form.schema.setup({
             formSchema: unref(formSchema),
-            cellSchema: schema,
+            cellSchema: lodashRemove(unref(cellSchema), setupRemove),
         });
+        active.update(0);
+        container.toTop();
     }
 
     return {
-        activeClassname,
+        matterRefs: container.refs,
         form,
-        element,
-        index,
-        mark,
         active,
         append,
         remove,

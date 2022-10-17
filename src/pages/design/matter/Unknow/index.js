@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-17 10:45:33
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-17 10:48:24
+ * @LastEditTime: 2022-10-17 13:17:11
  * @Description:
  */
 import { defineDescribe } from '../../hook/defineDescribe';
@@ -22,4 +22,6 @@ const MoldDefault = {
     workerTag: [],
 };
 
-export default defineDescribe('未知组件', MoldDefault, {});
+export default defineDescribe('未知组件', MoldDefault, {
+    [MoldDefault.mold]: MoldDefault,
+});

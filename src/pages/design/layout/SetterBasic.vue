@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-14 11:16:38
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-17 11:24:02
+ * @LastEditTime: 2022-10-17 13:18:37
  * @Description: 
 -->
 <script setup>
@@ -22,10 +22,6 @@ const active = useActive();
 const { label, name, mold, target } = active;
 
 const setter = useSetter();
-
-watchEffect(() => {
-    console.log(active);
-});
 </script>
 
 <template>

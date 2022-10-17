@@ -3,14 +3,14 @@
  * @Author: maggot-code
  * @Date: 2022-10-14 10:39:03
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-17 10:56:27
+ * @LastEditTime: 2022-10-17 13:22:29
  * @Description:
  */
 import { unref, ref, computed } from 'vue';
 import { isNil } from 'lodash';
 import { isDescribe } from '../hook/defineDescribe';
 import { matterHouse } from '../shared/warehouse';
-import { defaultComponent } from '../component';
+import { defaultComponent } from '../matter';
 
 export function defineActive(form) {
     const { cellSchema } = form.template;

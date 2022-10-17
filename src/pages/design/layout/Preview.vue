@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:49:14
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-17 11:31:56
+ * @LastEditTime: 2022-10-17 13:18:08
  * @Description: 
 -->
 <script>
@@ -30,7 +30,7 @@ export default {
         const remote = useFormRemote({ config, form });
 
         onMounted(() => {
-            form.schema.setup(SchemaData);
+            // form.schema.setup(SchemaData);
         });
         return {
             ...form.template,

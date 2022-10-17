@@ -1,7 +1,18 @@
 {
     "formSchema": {
-        "labelWidth": "160px",
-        "labelPosition": "top"
+        "labelWidth": "160px"
     },
-    "cellSchema": []
+    "cellSchema": [
+        {
+            "componentName": "mg-switch",
+            "field": "usedisabled",
+            "mold": "default",
+            "dataSchema": {},
+            "uiSchema": {
+                "label": "是否禁用",
+                "activeColor": "#409EFF",
+                "inactiveColor": "#C0CCDA"
+            }
+        }
+    ]
 }

@@ -3,17 +3,16 @@
  * @Author: maggot-code
  * @Date: 2022-10-17 13:27:55
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-17 15:38:20
+ * @LastEditTime: 2022-10-17 15:42:24
  * @Description: 
 -->
 <script setup>
-import { unref, ref, computed } from "vue";
+import { unref, ref } from "vue";
 import { useForm } from "../hook/useForm";
 import { useActive } from "../hook/useActive";
 
 const form = useForm();
-const { target, notField } = useActive();
-const field = computed(() => unref(target).schema.field);
+const { field, notField } = useActive();
 const usableBind = ref(false);
 
 function switchBindState() {

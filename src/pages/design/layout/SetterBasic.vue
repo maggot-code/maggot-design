@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-14 11:16:38
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-17 13:29:45
+ * @LastEditTime: 2022-10-17 15:40:54
  * @Description: 
 -->
 <script setup>
@@ -11,6 +11,8 @@ import SetterComponentName from "../component/SetterComponentName.vue";
 import SetterWorkMold from "../component/SetterWorkMold.vue";
 import SetterBindField from "../component/SetterBindField.vue";
 import SetterColSlider from "../component/SetterColSlider.vue";
+import SetterLabel from "../component/SetterLabel.vue";
+import SetterTips from "../component/SetterTips.vue";
 
 import { useSetter } from "../hook/useSetter";
 
@@ -36,10 +38,10 @@ console.log(setter);
             <SetterColSlider></SetterColSlider>
         </el-form-item>
         <el-form-item label="组件标题">
-            <el-input value="" placeholder="请输入组件标题"></el-input>
+            <SetterLabel></SetterLabel>
         </el-form-item>
         <el-form-item label="组件提示">
-            <el-input value="" placeholder="请输入组件提示"></el-input>
+            <SetterTips></SetterTips>
         </el-form-item>
     </el-form>
 </template>

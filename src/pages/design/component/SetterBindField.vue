@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-17 13:27:55
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-17 15:42:24
+ * @LastEditTime: 2022-10-17 15:51:11
  * @Description: 
 -->
 <script setup>
@@ -13,7 +13,7 @@ import { useActive } from "../hook/useActive";
 
 const form = useForm();
 const { field, notField } = useActive();
-const usableBind = ref(false);
+const usableBind = ref(true);
 
 function switchBindState() {
     usableBind.value = !unref(usableBind);

@@ -1,0 +1,7 @@
+{
+    "formSchema": {
+        "labelWidth": "160px",
+        "labelPosition": "top"
+    },
+    "cellSchema": []
+}

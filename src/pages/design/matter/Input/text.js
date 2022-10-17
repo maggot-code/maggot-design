@@ -1,9 +1,9 @@
 /*
- * @FilePath: \maggot-design\src\pages\design\component\Input\text.js
+ * @FilePath: \maggot-design\src\pages\design\matter\Input\text.js
  * @Author: maggot-code
  * @Date: 2022-10-14 17:05:15
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-14 17:20:06
+ * @LastEditTime: 2022-10-17 15:22:57
  * @Description:
  */
 export default {
@@ -13,7 +13,7 @@ export default {
     uiSchema: {
         col: 24,
         label: '文本输入框',
-        tips: '请输入内容',
+        tips: '',
         placeholder: '请输入内容',
         prefixIcon: 'el-icon-edit',
         suffixIcon: '',

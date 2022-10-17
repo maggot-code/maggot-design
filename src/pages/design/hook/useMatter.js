@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 16:57:12
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-17 11:22:15
+ * @LastEditTime: 2022-10-17 13:33:27
  * @Description:
  */
 import { v4 as uuid } from 'uuid';
@@ -33,7 +33,7 @@ function matterContainer() {
 
     async function toLocation(target) {
         await nextTick();
-        unref(refs).scrollTo(0, target.offsetTop);
+        unref(refs).scrollTo(0, target?.offsetTop ?? 0);
     }
     function toBottom() {
         toLocation(unref(refs).lastChild);

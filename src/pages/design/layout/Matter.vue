@@ -3,17 +3,16 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:48:50
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-17 10:43:37
+ * @LastEditTime: 2022-10-17 11:30:30
  * @Description: 
 -->
 <script setup>
-import { inject } from "vue";
+import { useForm } from "../hook/useForm";
 import { useMatterSelect } from "../hook/useMatterSelect";
 import { useMatter } from "../hook/useMatter";
 import { useActive } from "../hook/useActive";
-import { FormSymbolKeyword } from "../shared/context";
 
-const form = inject(FormSymbolKeyword);
+const form = useForm();
 const active = useActive();
 const select = useMatterSelect();
 const matter = useMatter(form, select, active);

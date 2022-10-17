@@ -3,13 +3,13 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:49:14
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-13 17:31:57
+ * @LastEditTime: 2022-10-17 11:31:56
  * @Description: 
 -->
 <script>
-import { onMounted, inject } from "vue";
+import { onMounted } from "vue";
+import { useForm } from "../hook/useForm";
 import { useFormFile, useFormRemote } from "@/biz/Form";
-import { FormSymbolKeyword } from "../shared/context";
 import SchemaData from "@/assets/json/form.v1.json";
 
 const UploadKey = "";
@@ -25,7 +25,7 @@ export default {
         const config = {
             define: defineConfig
         };
-        const form = inject(FormSymbolKeyword);
+        const form = useForm();
         const file = useFormFile({ config, form });
         const remote = useFormRemote({ config, form });
 

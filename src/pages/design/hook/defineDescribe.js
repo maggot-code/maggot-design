@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 16:06:37
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-17 11:03:00
+ * @LastEditTime: 2022-10-17 11:26:21
  * @Description:
  */
 const Describe_Kind = '__describe__';
@@ -31,7 +31,7 @@ export function isDescribe(target) {
 export function defineDescribe(label, schema, mold) {
     const setterMold = map(mold, setupMold);
 
-    function bindMold(value) {
+    function switchMold(value) {
         return mold[value] ?? schema;
     }
 
@@ -40,7 +40,7 @@ export function defineDescribe(label, schema, mold) {
         schema,
         label,
         setterMold,
-        bindMold,
+        switchMold,
     };
 }
 

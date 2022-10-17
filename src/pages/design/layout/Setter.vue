@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:49:30
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-17 10:55:31
+ * @LastEditTime: 2022-10-17 11:32:56
  * @Description: 
 -->
 <script setup>
@@ -11,12 +11,10 @@ import SetterBasic from "../layout/SetterBasic.vue";
 import SetterHigh from "../layout/SetterHigh.vue";
 import SetterDrive from "../layout/SetterDrive.vue";
 
-import { inject, ref } from "vue";
+import { ref } from "vue";
 import { useActive } from "../hook/useActive";
 import { defineSetter } from "../hook/defineSetter";
-import { FormSymbolKeyword } from "../shared/context";
 
-const form = inject(FormSymbolKeyword);
 const active = useActive();
 const setter = defineSetter();
 

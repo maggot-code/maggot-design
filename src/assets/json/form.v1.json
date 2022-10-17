@@ -563,40 +563,6 @@
             "value": ""
         },
         {
-            "field": "officephone",
-            "uiSchema": {
-                "col": 12,
-                "clearable": true,
-                "label": "办公电话"
-            },
-            "ruleSchema": [
-                {
-                    "max": 50,
-                    "message": "办公电话长度必须小于50字节，请修改。"
-                }
-            ],
-            "mold": "text",
-            "componentName": "mg-input",
-            "value": ""
-        },
-        {
-            "field": "fax",
-            "uiSchema": {
-                "col": 12,
-                "clearable": true,
-                "label": "传真"
-            },
-            "ruleSchema": [
-                {
-                    "max": 50,
-                    "message": "传真长度必须小于50字节，请修改。"
-                }
-            ],
-            "mold": "text",
-            "componentName": "mg-input",
-            "value": ""
-        },
-        {
             "field": "mobilephone",
             "uiSchema": {
                 "col": 12,
@@ -624,40 +590,6 @@
                 {
                     "max": 50,
                     "message": "QQ帐号长度必须小于50字节，请修改。"
-                }
-            ],
-            "mold": "text",
-            "componentName": "mg-input",
-            "value": ""
-        },
-        {
-            "field": "address",
-            "uiSchema": {
-                "col": 12,
-                "clearable": true,
-                "label": "联系地址"
-            },
-            "ruleSchema": [
-                {
-                    "max": 200,
-                    "message": "联系地址长度必须小于200字节，请修改。"
-                }
-            ],
-            "mold": "text",
-            "componentName": "mg-input",
-            "value": ""
-        },
-        {
-            "field": "zipcode",
-            "uiSchema": {
-                "col": 12,
-                "clearable": true,
-                "label": "邮编"
-            },
-            "ruleSchema": [
-                {
-                    "max": 200,
-                    "message": "邮编长度必须小于200字节，请修改。"
                 }
             ],
             "mold": "text",

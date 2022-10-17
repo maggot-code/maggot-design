@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 16:57:12
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-14 16:56:40
+ * @LastEditTime: 2022-10-17 10:42:44
  * @Description:
  */
 import { v4 as uuid } from 'uuid';
@@ -57,7 +57,9 @@ export function useMatter(form, select, active) {
     const element = computed(() => matterHouse.get(unref(select.value)));
 
     function append() {
-        const target = Object.assign({}, unref(element), { field: uuid() });
+        const target = Object.assign({}, unref(element).schema, {
+            field: uuid(),
+        });
 
         form.schema.setup({
             formSchema: unref(formSchema),

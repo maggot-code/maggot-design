@@ -3,9 +3,11 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 16:06:37
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-14 17:37:02
+ * @LastEditTime: 2022-10-17 11:03:00
  * @Description:
  */
+const Describe_Kind = '__describe__';
+
 function map(target, func) {
     const data = [];
 
@@ -22,14 +24,24 @@ function setupMold({ mold, uiSchema }) {
     return { label, value: mold };
 }
 
-export function defineDescribe(label, config, mold) {
+export function isDescribe(target) {
+    return target?.kind && target.kind === Describe_Kind;
+}
+
+export function defineDescribe(label, schema, mold) {
     const setterMold = map(mold, setupMold);
 
     function bindMold(value) {
-        return mold[value] ?? config;
+        return mold[value] ?? schema;
     }
 
-    return Object.assign({}, config ?? {}, { label, setterMold, bindMold });
+    return {
+        kind: Describe_Kind,
+        schema,
+        label,
+        setterMold,
+        bindMold,
+    };
 }
 
 export default defineDescribe;

@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:49:30
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-14 16:54:58
+ * @LastEditTime: 2022-10-17 10:55:31
  * @Description: 
 -->
 <script setup>
@@ -18,8 +18,7 @@ import { FormSymbolKeyword } from "../shared/context";
 
 const form = inject(FormSymbolKeyword);
 const active = useActive();
-const setter = defineSetter(form, active);
-console.log(setter);
+const setter = defineSetter();
 
 const setterName = ref("basic");
 </script>

@@ -1,9 +1,9 @@
 /*
- * @FilePath: \maggot-design\src\pages\design\shared\Warehouse.js
+ * @FilePath: \maggot-design\src\pages\design\shared\warehouse.js
  * @Author: maggot-code
  * @Date: 2022-10-13 15:44:12
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-14 17:31:14
+ * @LastEditTime: 2022-10-17 10:35:39
  * @Description:
  */
 // import { v4 as uuid } from 'uuid';
@@ -15,10 +15,10 @@ export function releaseMatter() {
     matterHouse.clear();
 }
 
-export function setupMatter(component) {
-    const { componentName } = component;
+export function setupMatter(matter) {
+    const { schema } = matter;
 
-    matterHouse.set(componentName, component);
+    matterHouse.set(schema.componentName, matter);
 }
 
 Component.forEach(setupMatter);

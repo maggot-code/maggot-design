@@ -3,15 +3,15 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:49:14
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-17 17:49:18
+ * @LastEditTime: 2022-10-18 10:41:30
  * @Description: 
 -->
 <script>
 import { onMounted } from "vue";
 import { useForm } from "../hook/useForm";
 import { useFormFile, useFormRemote } from "@/biz/Form";
-// import SchemaData from "@/assets/json/form.v1.json";
-import SchemaData from "@/assets/json/form.v2.json";
+import SchemaData from "@/assets/json/form.v1.json";
+// import SchemaData from "@/assets/json/form.v2.json";
 
 const UploadKey = "";
 const UploadBaseURL = "";

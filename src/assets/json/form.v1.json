@@ -78,8 +78,7 @@
             "uiSchema": {
                 "col": 12,
                 "clearable": true,
-                "label": "科研单位",
-                "tips": "考核院系"
+                "label": "科研单位"
             },
             "ruleSchema": [],
             "mold": "default",

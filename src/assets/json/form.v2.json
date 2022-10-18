@@ -13,6 +13,19 @@
                 "activeColor": "#409EFF",
                 "inactiveColor": "#C0CCDA"
             }
+        },
+        {
+            "componentName": "mg-slider",
+            "field": "col",
+            "mold": "default",
+            "dataSchema": {},
+            "uiSchema": {
+                "label": "栅格布局",
+                "showTooltip": false,
+                "showStops": true,
+                "max": 24
+            },
+            "value": 0
         }
     ]
 }

@@ -1,5 +1,5 @@
 $matterWidth: 240px;
-$setterWidth: 320px;
+$setterWidth: 420px;
 $viewWidth: $matterWidth + $setterWidth + 24px;
 $border: 2px solid pink;
 $borderRadius: 8px;
@@ -23,13 +23,13 @@ $borderRadius: 8px;
     }
 
     &-head {
-        height: 70px;
+        height: 60px;
     }
 
     &-body {
         display: flex;
         justify-content: space-between;
-        height: calc(100% - 90px);
+        height: calc(100% - 70px);
 
         &-container {
             border: $border;

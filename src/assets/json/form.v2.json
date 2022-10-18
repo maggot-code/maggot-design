@@ -4,28 +4,531 @@
     },
     "cellSchema": [
         {
-            "componentName": "mg-switch",
-            "field": "usedisabled",
-            "mold": "default",
-            "dataSchema": {},
-            "uiSchema": {
-                "label": "是否禁用",
-                "activeColor": "#409EFF",
-                "inactiveColor": "#C0CCDA"
-            }
-        },
-        {
             "componentName": "mg-slider",
             "field": "col",
             "mold": "default",
             "dataSchema": {},
             "uiSchema": {
+                "col": 24,
                 "label": "栅格布局",
                 "showTooltip": false,
                 "showStops": true,
                 "max": 24
             },
-            "value": 0
+            "value": 24
+        },
+        {
+            "componentName": "mg-input",
+            "field": "label",
+            "mold": "default",
+            "dataSchema": {},
+            "uiSchema": {
+                "col": 24,
+                "label": "表单项标题",
+                "placeholder": "请输入表单项标题"
+            },
+            "value": ""
+        },
+        {
+            "componentName": "mg-input",
+            "field": "tips",
+            "mold": "default",
+            "dataSchema": {},
+            "uiSchema": {
+                "col": 24,
+                "label": "表单项提示",
+                "placeholder": "请输入表单项提示"
+            },
+            "value": ""
+        },
+        {
+            "componentName": "mg-input",
+            "field": "prepend",
+            "mold": "default",
+            "dataSchema": {},
+            "uiSchema": {
+                "col": 24,
+                "label": "前置内容",
+                "placeholder": "请输入前置内容"
+            },
+            "value": ""
+        },
+        {
+            "componentName": "mg-input",
+            "field": "append",
+            "mold": "default",
+            "dataSchema": {},
+            "uiSchema": {
+                "col": 24,
+                "label": "后置内容",
+                "placeholder": "请输入后置内容"
+            },
+            "value": ""
+        },
+        {
+            "componentName": "mg-input",
+            "field": "noDataText",
+            "mold": "default",
+            "dataSchema": {},
+            "uiSchema": {
+                "col": 24,
+                "label": "空数据文本",
+                "tips": "没有数据时显示的文本提示内容",
+                "placeholder": "请输入空数据文本"
+            },
+            "value": ""
+        },
+        {
+            "componentName": "mg-input",
+            "field": "startPlaceholder",
+            "mold": "default",
+            "dataSchema": {},
+            "uiSchema": {
+                "col": 24,
+                "label": "开始日期",
+                "placeholder": "请输入开始日期占位内容"
+            },
+            "value": ""
+        },
+        {
+            "componentName": "mg-input",
+            "field": "endPlaceholder",
+            "mold": "default",
+            "dataSchema": {},
+            "uiSchema": {
+                "col": 24,
+                "label": "结束日期",
+                "placeholder": "请输入结束日期占位内容"
+            },
+            "value": ""
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "download",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "是否下载"
+            },
+            "value": false
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "percentage",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "是否显示进度条"
+            },
+            "value": true
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "total",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "文件总大小",
+                "tips": "显示上传文件总大小 (单位: MB)"
+            },
+            "value": true
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "current",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "文件已上传大小",
+                "tips": "显示上传文件已上传大小 (单位: MB)"
+            },
+            "value": true
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "speed",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "上传进度",
+                "tips": "显示上传文件进度百分比 (单位: %)"
+            },
+            "value": true
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "disabled",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "是否禁用"
+            },
+            "value": false
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "showAllLevels",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "完整路径",
+                "tips": "输入框中是否显示选中值的完整路径"
+            },
+            "value": true
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "collapseTags",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "是否折叠标签",
+                "tips": "多选模式下是否折叠标签"
+            },
+            "value": true
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "checkStrictly",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "是否关联",
+                "tips": "无法随意选择任意一级, 只能通过父节点向后选择直到最后一级节点"
+            },
+            "value": true
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "showInput",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "显示输入框"
+            },
+            "value": false
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "showInputControls",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "输入框控件",
+                "tips": "显示输入框的情况下是否显示控件按钮"
+            },
+            "value": true
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "showStops",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "间隔断点",
+                "tips": "是否在轴线上显示断点"
+            },
+            "value": false
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "showTooltip",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "是否提示",
+                "tips": "是否显示数值提示"
+            },
+            "value": false
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "readonly",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "是否只读"
+            },
+            "value": false
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "clearable",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "是否可清空"
+            },
+            "value": false
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "autofocus",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "自动获取焦点"
+            },
+            "value": false
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "showWordLimit",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "统计数字显示"
+            },
+            "value": true
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "showPassword",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "密码切换",
+                "tips": "是否显示密码和明文切换按钮"
+            },
+            "value": true
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "controls",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "控制按钮"
+            },
+            "value": true
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "stepStrictly",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "步长倍数",
+                "tips": "是否只能输入步长的倍数"
+            },
+            "value": false
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "minus",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "是否允许负数"
+            },
+            "value": false
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "border",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "是否显示边框"
+            },
+            "value": false
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "indeterminate",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "全选是否可用"
+            },
+            "value": false
+        },
+        {
+            "componentName": "mg-switch",
+            "field": "multiple",
+            "mold": "default",
+            "dataSchema": {
+                "valueType": "Boolean"
+            },
+            "uiSchema": {
+                "col": 12,
+                "label": "是否可以多选"
+            },
+            "value": false
+        },
+        {
+            "componentName": "mg-select",
+            "field": "expandTrigger",
+            "mold": "default",
+            "dataSchema": {
+                "enums": [
+                    {
+                        "id": "hover",
+                        "label": "移入触发"
+                    },
+                    {
+                        "id": "click",
+                        "label": "点击触发"
+                    }
+                ],
+                "lib": {}
+            },
+            "uiSchema": {
+                "col": 24,
+                "label": "展开方式"
+            },
+            "value": "hover"
+        },
+        {
+            "componentName": "mg-select",
+            "field": "resize",
+            "mold": "default",
+            "dataSchema": {
+                "enums": [
+                    {
+                        "id": "none",
+                        "label": "不允许缩放"
+                    },
+                    {
+                        "id": "both",
+                        "label": "允许缩放"
+                    },
+                    {
+                        "id": "horizontal",
+                        "label": "允许水平缩放"
+                    },
+                    {
+                        "id": "vertical",
+                        "label": "允许垂直缩放"
+                    }
+                ],
+                "lib": {}
+            },
+            "uiSchema": {
+                "col": 24,
+                "label": "是否允许缩放"
+            },
+            "value": "none"
+        },
+        {
+            "componentName": "mg-select",
+            "field": "format",
+            "mold": "default",
+            "dataSchema": {
+                "enums": [
+                    {
+                        "id": "yyyy-MM-dd HH:mm:ss",
+                        "label": "年月日时分秒"
+                    },
+                    {
+                        "id": "yyyy-MM-dd HH:mm",
+                        "label": "年月日时分"
+                    },
+                    {
+                        "id": "yyyy-MM-dd HH",
+                        "label": "年月日时"
+                    },
+                    {
+                        "id": "HH:mm:ss",
+                        "label": "时分秒"
+                    },
+                    {
+                        "id": "HH:mm",
+                        "label": "时分"
+                    },
+                    {
+                        "id": "HH",
+                        "label": "时"
+                    },
+                    {
+                        "id": "yyyy-MM-dd",
+                        "label": "年月日"
+                    },
+                    {
+                        "id": "yyyy-MM",
+                        "label": "年月"
+                    },
+                    {
+                        "id": "yyyy",
+                        "label": "年"
+                    }
+                ],
+                "lib": {}
+            },
+            "uiSchema": {
+                "col": 24,
+                "label": "日期格式化"
+            },
+            "value": "yyyy-MM-dd HH:mm:ss"
         }
     ]
 }

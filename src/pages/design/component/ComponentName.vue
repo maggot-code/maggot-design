@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 15:24:02
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 15:26:56
+ * @LastEditTime: 2022-10-19 17:03:30
  * @Description: 
 -->
 <script setup>
@@ -11,11 +11,11 @@ import { useControl } from "../hooks/control";
 
 const control = useControl();
 
-console.log(control.active);
+const { template } = control.active;
 </script>
 
 <template>
-    <h1>component name</h1>
+    <el-tag>{{template.componentName}}</el-tag>
 </template>
 
 <style scoped lang='scss'>

@@ -1,9 +1,9 @@
 /*
- * @FilePath: \maggot-design\src\pages\design\hooks\control\enhanceForm.js
+ * @FilePath: \maggot-design\src\pages\design\shared\enhanceForm.js
  * @Author: maggot-code
  * @Date: 2022-10-19 14:37:17
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 15:09:19
+ * @LastEditTime: 2022-10-19 18:35:34
  * @Description:
  */
 import { unref } from 'vue';
@@ -19,10 +19,7 @@ function unequal(schema) {
 }
 
 export function enhanceForm(form) {
-    function update(schema) {
-        const oldSchema = unref(form.schema.cellSchema).find(equal(schema));
-        console.log(oldSchema);
-    }
+    function update() {}
 
     function append(rawSchema) {
         const field = rawSchema?.field ?? uuid();
@@ -30,6 +27,15 @@ export function enhanceForm(form) {
         const data = concat(unref(form.schema.cellSchema), [schema]);
         form.schema.cell.setup(data);
 
+        return [data.length - 1, data];
+    }
+
+    function insert(rawSchema) {
+        const field = rawSchema?.field ?? uuid();
+        const index = unref(form.schema.cellSchema).findIndex(equal(rawSchema));
+        const [_, data] = remove(rawSchema);
+        data.splice(index, 0, Object.assign({}, rawSchema, { field }));
+        form.schema.cell.setup(data);
         return [data.length - 1, data];
     }
 
@@ -43,6 +49,7 @@ export function enhanceForm(form) {
     return Object.assign({}, form, {
         update: throttle(update, 120),
         append,
+        insert,
         remove,
     });
 }

@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:54:20
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 14:46:35
+ * @LastEditTime: 2022-10-19 17:57:32
  * @Description:
  */
 import { useIndexes } from './useIndexes';
@@ -13,7 +13,7 @@ import { useAction } from './useAction';
 export function defineControl(props) {
     const indexes = useIndexes(props);
     const active = useActive(props, indexes);
-    const action = useAction(props, indexes);
+    const action = useAction(props, indexes, active);
 
     const bind = { indexes, active, action };
 

@@ -3,12 +3,13 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:59:16
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 11:37:20
+ * @LastEditTime: 2022-10-19 17:11:46
  * @Description:
  */
 import { defineDescribe } from '../../hooks/matter/defineDescribe';
 
 const MoldText = {
+    label: '文本输入框',
     mold: 'text',
     uiSchema: [
         ['col'],
@@ -25,6 +26,7 @@ const MoldText = {
 };
 
 const MoldNumber = {
+    label: '数字输入框',
     mold: 'number',
     uiSchema: [
         ['col'],

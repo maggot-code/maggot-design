@@ -3,14 +3,24 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 14:21:29
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 15:12:08
+ * @LastEditTime: 2022-10-19 18:31:58
  * @Description:
  */
 import { unref } from 'vue';
-import { enhanceForm } from './enhanceForm';
+import { enhanceForm } from '../../shared/enhanceForm';
 
-export function useAction(control, indexes) {
+export function useAction(control, indexes, active) {
     const preview = enhanceForm(control.preview);
+
+    function moldMatter(mold) {
+        const { bindMold } = control.matter.store.findMatter(
+            unref(active.template).componentName
+        );
+        const moldSchema = bindMold(mold);
+        const schema = Object.assign({}, unref(active.template), moldSchema);
+
+        preview.insert(schema);
+    }
 
     function createMatter() {
         const { schema } = control.matter.store.findMatter(
@@ -26,6 +36,7 @@ export function useAction(control, indexes) {
     }
 
     return {
+        moldMatter,
         createMatter,
         deleteMatter,
     };

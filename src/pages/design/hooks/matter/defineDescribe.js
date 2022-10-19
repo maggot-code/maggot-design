@@ -3,17 +3,16 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 10:01:05
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 11:38:22
+ * @LastEditTime: 2022-10-19 12:59:41
  * @Description:
  */
 import { v4 as uuid } from 'uuid';
 import { toArrayEmpty } from '@/shared/transform';
 import { mapObject } from '@/shared/utils';
-import UISetter from '../../store/setter/ui';
 
 function setupUISchema({ uiSchema }) {
     const [unusable, data] = toArrayEmpty(uiSchema);
-    if (unusable) return UISetter;
+    if (unusable) return {};
 
     return mapObject(data, (item) => {
         const [key, value] = item;

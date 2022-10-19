@@ -3,11 +3,13 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:54:20
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 09:54:35
+ * @LastEditTime: 2022-10-19 13:09:32
  * @Description:
  */
-export function defineControl() {
-    return {};
+export function defineControl(props) {
+    const bind = {};
+
+    return Object.assign({}, props, bind);
 }
 
 export default defineControl;

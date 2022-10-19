@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:30:03
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 09:57:39
+ * @LastEditTime: 2022-10-19 13:11:32
  * @Description: 
 -->
 <script setup>
@@ -20,7 +20,6 @@ import { PreviewFormSymbol, BasicSetterFormSymbol, SeniorSetterFormSymbol, Contr
 const preview = defineForm();
 const basic = defineForm();
 const senior = defineForm();
-
 const matter = defineMatter();
 const control = defineControl({ preview, basic, senior, matter });
 

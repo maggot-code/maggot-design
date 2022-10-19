@@ -1,12 +1,16 @@
 /*
- * @FilePath: \vue2.7_workflow\src\shared\transform.js
+ * @FilePath: \maggot-design\src\shared\transform.js
  * @Author: maggot-code
  * @Date: 2022-07-27 16:22:14
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-08-09 14:09:24
+ * @LastEditTime: 2022-10-19 10:32:20
  * @Description:
  */
 import { isNil, isArray, isString, isBoolean, isObjectLike } from 'lodash';
+
+export function isStringEmpty(target) {
+    return isString(target) && target.trim().length <= 0;
+}
 
 export function toUsabled(target, voidValue, validValue) {
     return isNil(target) ? voidValue : validValue;

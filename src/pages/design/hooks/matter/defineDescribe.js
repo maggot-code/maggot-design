@@ -3,27 +3,22 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 10:01:05
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 10:35:39
+ * @LastEditTime: 2022-10-19 11:38:22
  * @Description:
  */
-import UiSetter from '../../store/setter/ui';
-
-function toArrayEmpty(target) {
-    const unusable = !Array.isArray(target);
-    const value = unusable ? [] : target;
-    return [unusable, value];
-}
+import { v4 as uuid } from 'uuid';
+import { toArrayEmpty } from '@/shared/transform';
+import { mapObject } from '@/shared/utils';
+import UISetter from '../../store/setter/ui';
 
 function setupUISchema({ uiSchema }) {
-    const [unusable, schema] = toArrayEmpty(uiSchema);
-    if (unusable) return {};
+    const [unusable, data] = toArrayEmpty(uiSchema);
+    if (unusable) return UISetter;
 
-    const setter = {};
-    schema.forEach((item) => {});
-    console.log(UiSetter);
-
-    // return Object.assign({}, UiSetter, setter);
-    return setter;
+    return mapObject(data, (item) => {
+        const [key, value] = item;
+        return [key, value, item.length === 2];
+    });
 }
 function setupRuleSchema() {
     return [];
@@ -48,10 +43,19 @@ export function setupMold(schema) {
     });
 }
 
-export function defineDescribe(props) {
-    console.log(props);
+export function defineDescribe(props, molds) {
+    const { namespace, mold } = props;
+    const schema = Object.assign(
+        {},
+        {
+            mold,
+            componentName: namespace,
+            field: uuid(),
+        },
+        setupMold(molds[mold])
+    );
 
-    return {};
+    return Object.assign({}, props, { schema });
 }
 
 export default defineDescribe;

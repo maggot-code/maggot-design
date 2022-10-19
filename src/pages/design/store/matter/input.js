@@ -3,12 +3,12 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:59:16
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 10:22:34
+ * @LastEditTime: 2022-10-19 11:37:20
  * @Description:
  */
-import { defineDescribe, setupMold } from '../../hooks/matter';
+import { defineDescribe } from '../../hooks/matter/defineDescribe';
 
-const MoldText = setupMold({
+const MoldText = {
     mold: 'text',
     uiSchema: [
         ['col'],
@@ -22,12 +22,37 @@ const MoldText = setupMold({
         ['clearable', false],
         ['autofocus', false],
     ],
-});
+};
 
-export default defineDescribe({
-    namespace: 'mg-input',
-    label: '输入框',
-    mold: {
-        [MoldText.mold]: MoldText,
+const MoldNumber = {
+    mold: 'number',
+    uiSchema: [
+        ['col'],
+        ['tips'],
+        ['prepend'],
+        ['append'],
+        ['placeholder'],
+        ['label', '数字输入框'],
+        ['controlsPosition', 'right'],
+        ['step', 1],
+        ['minus', false],
+        ['controls', true],
+        ['readonly', false],
+        ['disabled', false],
+        ['clearable', false],
+        ['autofocus', false],
+        ['stepStrictly', false],
+    ],
+};
+
+export default defineDescribe(
+    {
+        namespace: 'mg-input',
+        label: '输入框',
+        mold: MoldText.mold,
     },
-});
+    {
+        [MoldText.mold]: MoldText,
+        [MoldNumber.mold]: MoldNumber,
+    }
+);

@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-07-27 16:22:14
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 10:32:20
+ * @LastEditTime: 2022-10-19 10:59:37
  * @Description:
  */
 import { isNil, isArray, isString, isBoolean, isObjectLike } from 'lodash';
@@ -30,4 +30,16 @@ export function toBoolean(target, def = false) {
 
 export function toObject(target, def = {}) {
     return isObjectLike(target) ? target : def;
+}
+
+export function toArrayEmpty(target) {
+    const unusable = !isArray(target) || target.length <= 0;
+    const value = unusable ? [] : target;
+    return [unusable, value];
+}
+
+export function toObjectEmpty(target) {
+    const unusable = !isObjectLike(target) || Object.keys(target).length <= 0;
+    const value = unusable ? {} : target;
+    return [unusable, value];
 }

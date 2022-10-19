@@ -1,7 +1,7 @@
 $matterWidth: 240px;
 $setterWidth: 420px;
-$viewWidth: $matterWidth + $setterWidth + 24px;
-$border: 2px solid pink;
+$previewWidth: $matterWidth + $setterWidth + 24px;
+$border: 2px dashed #666;
 $borderRadius: 8px;
 
 .design {
@@ -35,7 +35,6 @@ $borderRadius: 8px;
             border: $border;
             border-radius: $borderRadius;
             height: 100%;
-            padding: 6px;
             box-sizing: border-box;
         }
 
@@ -43,8 +42,8 @@ $borderRadius: 8px;
             width: $matterWidth;
         }
 
-        &-view {
-            width: calc(100% - $viewWidth);
+        &-preview {
+            width: calc(100% - $previewWidth);
             overflow-x: hidden;
             overflow-y: auto;
         }

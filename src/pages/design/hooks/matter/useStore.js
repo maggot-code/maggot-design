@@ -3,13 +3,19 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 10:09:20
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 13:00:17
+ * @LastEditTime: 2022-10-19 14:35:30
  * @Description:
  */
 import matter from '../../store/matter';
 
 export function useStore() {
-    return { matter };
+    function findMatter(namespace) {
+        return matter.find((item) => item.namespace === namespace);
+    }
+    return {
+        matter,
+        findMatter,
+    };
 }
 
 export default useStore;

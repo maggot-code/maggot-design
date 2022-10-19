@@ -3,10 +3,9 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 10:01:05
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 12:59:41
+ * @LastEditTime: 2022-10-19 14:34:06
  * @Description:
  */
-import { v4 as uuid } from 'uuid';
 import { toArrayEmpty } from '@/shared/transform';
 import { mapObject } from '@/shared/utils';
 
@@ -49,7 +48,6 @@ export function defineDescribe(props, molds) {
         {
             mold,
             componentName: namespace,
-            field: uuid(),
         },
         setupMold(molds[mold])
     );

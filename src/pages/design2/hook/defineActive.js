@@ -1,14 +1,14 @@
 /*
- * @FilePath: \maggot-design\src\pages\design\hook\defineActive.js
+ * @FilePath: \maggot-design\src\pages\design2\hook\defineActive.js
  * @Author: maggot-code
  * @Date: 2022-10-14 10:39:03
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-17 13:22:29
+ * @LastEditTime: 2022-10-19 09:16:37
  * @Description:
  */
 import { unref, ref, computed } from 'vue';
 import { isNil } from 'lodash';
-import { isDescribe } from '../hook/defineDescribe';
+import { isDescribe } from './defineDescribe';
 import { matterHouse } from '../shared/warehouse';
 import { defaultComponent } from '../matter';
 

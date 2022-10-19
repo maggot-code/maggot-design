@@ -3,30 +3,10 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:30:03
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-14 17:54:06
+ * @LastEditTime: 2022-10-19 09:15:22
  * @Description: 
 -->
-<script setup>
-import DesignMatter from "./layout/Matter.vue";
-import DesignPreview from "./layout/Preview.vue";
-import DesignSetter from "./layout/Setter.vue";
-
-import { onUnmounted, provide } from "vue";
-import { defineForm } from "@/biz/Form";
-import { defineActive } from "./hook/defineActive"
-import { releaseMatter } from "./shared/warehouse";
-import { FormSymbolKeyword, ActiveSymbolKeyword } from "./shared/context";
-
-const form = defineForm();
-const active = defineActive(form);
-
-provide(FormSymbolKeyword, form);
-provide(ActiveSymbolKeyword, active);
-
-onUnmounted(() => {
-    releaseMatter();
-});
-</script>
+<script setup></script>
 
 <template>
     <main class="design">
@@ -34,15 +14,9 @@ onUnmounted(() => {
             <section class="design-head-handler">操作</section>
         </div>
         <div class="design-layout design-body">
-            <section class="design-body-container design-body-matter">
-                <DesignMatter></DesignMatter>
-            </section>
-            <section class="design-body-container design-body-view">
-                <DesignPreview></DesignPreview>
-            </section>
-            <section class="design-body-container design-body-setter">
-                <DesignSetter></DesignSetter>
-            </section>
+            <section class="design-body-container design-body-matter"></section>
+            <section class="design-body-container design-body-view"></section>
+            <section class="design-body-container design-body-setter"></section>
         </div>
     </main>
 </template>

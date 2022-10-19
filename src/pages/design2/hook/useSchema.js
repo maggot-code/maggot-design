@@ -1,4 +1,12 @@
 /*
+ * @FilePath: \maggot-design\src\pages\design2\hook\useSchema.js
+ * @Author: maggot-code
+ * @Date: 2022-10-19 09:14:41
+ * @LastEditors: maggot-code
+ * @LastEditTime: 2022-10-19 09:16:40
+ * @Description:
+ */
+/*
  * @FilePath: \maggot-design\src\pages\design\hook\useSchema.js
  * @Author: maggot-code
  * @Date: 2022-10-18 15:11:43
@@ -8,7 +16,7 @@
  */
 import { nextTick, watch, unref } from 'vue';
 import { isNil, throttle } from 'lodash';
-import { useForm } from '../hook/useForm';
+import { useForm } from './useForm';
 import { map, mapObject, isStringEmpty } from '../shared/utils';
 import SchemaGraph from '../shared/schema';
 

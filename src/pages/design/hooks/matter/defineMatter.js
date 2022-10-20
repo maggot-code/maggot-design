@@ -3,10 +3,10 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:55:46
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 13:24:00
+ * @LastEditTime: 2022-10-20 14:24:46
  * @Description:
  */
-import { ref, unref } from 'vue';
+import { nextTick, ref, unref } from 'vue';
 import { mapArray } from '@/shared/utils';
 import { useStore } from './useStore';
 import { UnknowNamespace } from '../../shared/context';
@@ -30,13 +30,35 @@ export function useSelect({ matter }) {
     return { options, value, setup };
 }
 
+export function useContainer() {
+    const refs = ref(null);
+
+    async function toLocation(target) {
+        await nextTick();
+        unref(refs).scrollTo(0, target?.offsetTop ?? 0);
+    }
+
+    function toBottom() {
+        toLocation(unref(refs).lastElementChild);
+    }
+
+    return {
+        refs,
+        toLocation,
+        toBottom,
+        toTop: toLocation,
+    };
+}
+
 export function defineMatter() {
     const store = useStore();
     const select = useSelect(store);
+    const container = useContainer();
 
     return {
         store,
         select,
+        container,
     };
 }
 

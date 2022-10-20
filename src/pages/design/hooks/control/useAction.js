@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 14:21:29
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 13:31:52
+ * @LastEditTime: 2022-10-20 14:26:37
  * @Description:
  */
 import { unref } from 'vue';
@@ -31,11 +31,13 @@ export function useAction(control, indexes, active) {
         );
         const [index] = preview.append(schema);
         indexes.setup(index);
+        control.matter.container.toBottom();
     }
 
     function deleteMatter(schema) {
         preview.remove(schema);
         indexes.setup(0);
+        control.matter.container.toTop();
     }
 
     return {

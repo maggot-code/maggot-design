@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:40:11
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 17:30:19
+ * @LastEditTime: 2022-10-20 14:26:10
  * @Description: 
 -->
 <script setup>
@@ -11,6 +11,7 @@ import { useControl } from "../hooks/control";
 
 const control = useControl();
 
+const { refs } = control.matter.container;
 const { value: selectValue } = control.matter.select;
 const { cellSchema } = control.preview.schema;
 const className = ["design-matter-card-index"];
@@ -28,7 +29,7 @@ const setupClassName = control.indexes.toClassName(className);
             <el-button size="mini" @click="control.action.createMatter">创建</el-button>
         </div>
 
-        <div class="design-matter-card">
+        <div class="design-matter-card" ref="refs">
             <template v-for="(item,index) in cellSchema">
                 <div class="design-matter-card-item" :class="setupClassName(index)" :key="item.field"
                     @click="control.indexes.setup(index)">

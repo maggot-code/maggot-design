@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 15:14:32
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 13:02:32
+ * @LastEditTime: 2022-10-20 13:53:31
  * @Description: 
 -->
 <script setup>
@@ -28,6 +28,7 @@ const control = useControl();
 const setter = useSetter();
 
 const { formRefs, token, proName, formJob, formSchema, cellSchema } = control.basic.template;
+const { usable } = setter;
 </script>
 
 <template>
@@ -37,11 +38,13 @@ const { formRefs, token, proName, formJob, formSchema, cellSchema } = control.ba
         <WorkMode></WorkMode>
         <DataField></DataField>
 
-        <h1>样式属性</h1>
-        <mg-form class="design-setter-basic-form" ref="formRefs" :token="token" :proName="proName" :job="formJob"
-            :upload="file.template" :remote="remote.template" :schema="{ formSchema, cellSchema }"
-            @monitor-value="setter.ui.handlerMonitor">
-        </mg-form>
+        <template v-if="usable">
+            <h1>样式属性</h1>
+            <mg-form class="design-setter-basic-form" ref="formRefs" :token="token" :proName="proName" :job="formJob"
+                :upload="file.template" :remote="remote.template" :schema="{ formSchema, cellSchema }"
+                @monitor-value="setter.ui.handlerMonitor">
+            </mg-form>
+        </template>
     </div>
 </template>
 

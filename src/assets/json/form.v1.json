@@ -1,6 +1,7 @@
 {
     "formSchema": {
-        "labelWidth": "160px"
+        "labelWidth": "160px",
+        "disabled": false
     },
     "cellSchema": [
         {

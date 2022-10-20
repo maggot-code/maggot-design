@@ -3,9 +3,12 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:48:11
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 09:22:40
+ * @LastEditTime: 2022-10-20 13:22:57
  * @Description:
  */
+// 未知控件命名空间
+export const UnknowNamespace = 'mg-unknow';
+
 // 控制器
 export const ControlSymbol = Symbol('Control');
 

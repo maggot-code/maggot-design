@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:40:45
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 15:17:01
+ * @LastEditTime: 2022-10-20 13:56:51
  * @Description: 
 -->
 <script setup>
@@ -13,10 +13,15 @@ import SetterDrive from "../component/SetterDrive.vue";
 
 import { ref } from "vue";
 import { useControl } from "../hooks/control";
+import { useSetter } from "../hooks/setter";
+
+const control = useControl();
+const setter = useSetter();
+
+const { unusable } = control.preview.schema.cell;
+const { usable } = setter;
 
 const setterName = ref("basic");
-const control = useControl();
-const { unusable } = control.preview.schema.cell;
 </script>
 
 <template>
@@ -28,11 +33,11 @@ const { unusable } = control.preview.schema.cell;
             <SetterBasic class="design-setter-layout"></SetterBasic>
         </el-tab-pane>
 
-        <el-tab-pane label="高级属性" name="senior">
+        <el-tab-pane v-if="usable" label="高级属性" name="senior">
             <SetterSenior class="design-setter-layout"></SetterSenior>
         </el-tab-pane>
 
-        <el-tab-pane label="联动属性" name="drive">
+        <el-tab-pane v-if="usable" label="联动属性" name="drive">
             <SetterDrive class="design-setter-layout"></SetterDrive>
         </el-tab-pane>
     </el-tabs>

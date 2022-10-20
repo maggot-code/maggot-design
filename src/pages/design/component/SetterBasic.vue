@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 15:14:32
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 10:43:09
+ * @LastEditTime: 2022-10-20 13:02:32
  * @Description: 
 -->
 <script setup>
@@ -26,7 +26,6 @@ const file = useFormFile({ config });
 const remote = useFormRemote({ config });
 const control = useControl();
 const setter = useSetter();
-console.log(setter);
 
 const { formRefs, token, proName, formJob, formSchema, cellSchema } = control.basic.template;
 </script>

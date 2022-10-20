@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 14:37:17
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 11:33:50
+ * @LastEditTime: 2022-10-20 13:04:03
  * @Description:
  */
 import { unref } from 'vue';
@@ -53,7 +53,7 @@ export function enhanceForm(form) {
     }
 
     return Object.assign({}, form, {
-        update: debounce(update, 120),
+        update: debounce(update, 240),
         append,
         insert,
         remove,

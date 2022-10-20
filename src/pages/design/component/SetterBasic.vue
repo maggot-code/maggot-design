@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 15:14:32
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 13:53:31
+ * @LastEditTime: 2022-10-20 14:31:41
  * @Description: 
 -->
 <script setup>
@@ -11,6 +11,7 @@ import ComponentName from "./ComponentName.vue";
 import WorkMode from "./WorkMode.vue";
 import DataField from "./DataField.vue";
 
+import { onMounted } from "vue";
 import { useFormFile, useFormRemote } from "@/biz/Form";
 import { useControl } from "../hooks/control";
 import { useSetter } from "../hooks/setter";
@@ -29,6 +30,12 @@ const setter = useSetter();
 
 const { formRefs, token, proName, formJob, formSchema, cellSchema } = control.basic.template;
 const { usable } = setter;
+
+onMounted(() => {
+    control.basic.schema.form.setup({
+        labelPosition: "left"
+    });
+});
 </script>
 
 <template>

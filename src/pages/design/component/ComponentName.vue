@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 15:24:02
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 17:03:30
+ * @LastEditTime: 2022-10-20 16:50:35
  * @Description: 
 -->
 <script setup>
@@ -15,7 +15,7 @@ const { template } = control.active;
 </script>
 
 <template>
-    <el-tag>{{template.componentName}}</el-tag>
+    <el-tag size="small">{{template.componentName}}</el-tag>
 </template>
 
 <style scoped lang='scss'>

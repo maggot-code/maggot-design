@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:40:56
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 13:07:56
+ * @LastEditTime: 2022-10-20 16:42:41
  * @Description: 
 -->
 <script setup>
@@ -34,11 +34,20 @@ onMounted(() => {
 </script>
 
 <template>
-    <mg-form class="design-preview" ref="formRefs" :token="token" :proName="proName" :job="formJob"
-        :upload="file.template" :remote="remote.template" :schema="{ formSchema, cellSchema }">
-    </mg-form>
+    <div class="design-preview">
+        <mg-form class="design-preview-form" ref="formRefs" :token="token" :proName="proName" :job="formJob"
+            :upload="file.template" :remote="remote.template" :schema="{ formSchema, cellSchema }">
+        </mg-form>
+    </div>
 </template>
 
 <style scoped lang='scss'>
-
+.design-preview {
+    width: 100%;
+    height: 100%;
+    padding: 12px 6px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
 </style>

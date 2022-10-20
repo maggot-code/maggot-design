@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:40:45
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 13:56:51
+ * @LastEditTime: 2022-10-20 16:46:23
  * @Description: 
 -->
 <script setup>
@@ -25,8 +25,8 @@ const setterName = ref("basic");
 </script>
 
 <template>
-    <div v-if="unusable" class="design-setter-empty">
-        <h1>Empty</h1>
+    <div v-if="unusable" class="design-setter design-setter-empty">
+        <el-empty description="暂无控件"></el-empty>
     </div>
     <el-tabs v-else class="design-setter" v-model="setterName" :stretch="true">
         <el-tab-pane label="基础属性" name="basic">
@@ -47,14 +47,8 @@ const setterName = ref("basic");
 .design-setter {
     width: 100%;
     height: 100%;
+    padding: 12px;
+    overflow: hidden;
     box-sizing: border-box;
-
-    & :deep(.el-tabs__content) {
-        height: calc(100% - 55px);
-        padding-right: 16px;
-        overflow-x: hidden;
-        overflow-y: auto;
-        box-sizing: border-box;
-    }
 }
 </style>

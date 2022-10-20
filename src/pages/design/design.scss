@@ -1,4 +1,4 @@
-$matterWidth: 240px;
+$matterWidth: 280px;
 $setterWidth: 420px;
 $previewWidth: $matterWidth + $setterWidth + 24px;
 $border: 2px dashed #ccc;
@@ -34,6 +34,7 @@ $borderRadius: 8px;
             border: $border;
             border-radius: $borderRadius;
             height: 100%;
+            padding-right: 3px;
             box-sizing: border-box;
         }
 

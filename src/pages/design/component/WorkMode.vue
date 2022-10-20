@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 15:24:36
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 13:47:40
+ * @LastEditTime: 2022-10-20 16:52:12
  * @Description: 
 -->
 <script setup>
@@ -19,7 +19,7 @@ const { options } = setter.mold;
 
 <template>
     <div class="design-setter-basic-mold">
-        <el-select size="mini" :disabled="unusable" :value="template.mold" @change="setter.mold.setup">
+        <el-select size="small" :disabled="unusable" :value="template.mold" @change="setter.mold.setup">
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
             </el-option>
         </el-select>

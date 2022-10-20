@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:40:11
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 14:26:10
+ * @LastEditTime: 2022-10-20 16:35:52
  * @Description: 
 -->
 <script setup>
@@ -14,8 +14,10 @@ const control = useControl();
 const { refs } = control.matter.container;
 const { value: selectValue } = control.matter.select;
 const { cellSchema } = control.preview.schema;
+
 const className = ["design-matter-card-index"];
-const setupClassName = control.indexes.toClassName(className);
+const setupClassName = control.indexes.toIndex(className, []);
+const setupTagColor = control.indexes.toIndex("#409EFF", "#909399");
 </script>
 
 <template>
@@ -26,15 +28,19 @@ const setupClassName = control.indexes.toClassName(className);
                     :value="item.value">
                 </el-option>
             </el-select>
-            <el-button size="mini" @click="control.action.createMatter">创建</el-button>
+            <el-button type="primary" plain size="mini" @click="control.action.createMatter">创建</el-button>
         </div>
 
         <div class="design-matter-card" ref="refs">
             <template v-for="(item,index) in cellSchema">
                 <div class="design-matter-card-item" :class="setupClassName(index)" :key="item.field"
                     @click="control.indexes.setup(index)">
-                    <p>{{item.uiSchema.label}}</p>
-                    <el-button size="mini" @click.stop="control.action.deleteMatter(item,index)">删除</el-button>
+                    <el-tag type="info" :color="setupTagColor(index)" size="small" effect="dark">
+                        {{item.uiSchema.label}}
+                    </el-tag>
+                    <el-button type="danger" size="mini" @click.stop="control.action.deleteMatter(item,index)">
+                        删除
+                    </el-button>
                 </div>
             </template>
         </div>
@@ -42,44 +48,50 @@ const setupClassName = control.indexes.toClassName(className);
 </template>
 
 <style scoped lang='scss'>
+$borderColor: #E6A23C;
+
 .design-matter {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     width: 100%;
     height: 100%;
     overflow: hidden;
 
     &-select {
         display: flex;
+        align-items: center;
+        justify-content: space-between;
         width: 100%;
         height: 48px;
+        padding: 0 18px 0 8px;
+        overflow: hidden;
+        box-sizing: border-box;
     }
 
     &-card {
-        align-self: center;
         width: 100%;
-        height: calc(100% - 60px);
+        height: calc(100% - 52px);
+        padding: 0 6px;
+        box-sizing: border-box;
         overflow-x: hidden;
         overflow-y: auto;
 
         &-item {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             width: 100%;
             height: 36px;
-            padding: 0 12px;
-            border: 1px dashed transparent;
-            border-radius: 4px;
-            background-color: #f5f7fa;
-            transition: all .3s;
+            padding: 3px 6px;
+            border: 1px dashed rgba($color: $borderColor, $alpha: 0.2);
+            border-radius: 6px;
             box-sizing: border-box;
+            transition: all 0.2s;
+            background-color: rgba($color: #eee, $alpha: 0.2);
             cursor: pointer;
 
             &:hover {
-                background-color: pink;
-                border-color: #666;
+                border-color: rgba($color: $borderColor, $alpha: 0.5);
+                background-color: rgba($color: #eee, $alpha: 0.6);
+                box-shadow: 0 2px 4px rgba($color: #000, $alpha: 0.12), 0 0 6px rgba($color: #000, $alpha: 0.04);
             }
 
             &+& {
@@ -88,8 +100,12 @@ const setupClassName = control.indexes.toClassName(className);
         }
 
         &-index {
-            background-color: red;
-            border-color: #333;
+            border-color: rgba($color: $borderColor, $alpha: 1.0);
+
+            &:hover {
+                border-color: rgba($color: $borderColor, $alpha: 1.0);
+                background-color: rgba($color: #eee, $alpha: 0.2);
+            }
         }
     }
 }

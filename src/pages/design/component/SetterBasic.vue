@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 15:14:32
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 14:31:41
+ * @LastEditTime: 2022-10-20 16:55:03
  * @Description: 
 -->
 <script setup>
@@ -40,21 +40,57 @@ onMounted(() => {
 
 <template>
     <div class="design-setter-basic">
-        <h1>共享属性</h1>
-        <ComponentName></ComponentName>
-        <WorkMode></WorkMode>
-        <DataField></DataField>
+        <el-divider content-position="right">共享属性</el-divider>
+        <div class="design-setter-basic-shared">
+            <div class="design-setter-basic-shared-matter">
+                <WorkMode></WorkMode>
+                <ComponentName></ComponentName>
+            </div>
+            <DataField></DataField>
+        </div>
 
         <template v-if="usable">
-            <h1>样式属性</h1>
-            <mg-form class="design-setter-basic-form" ref="formRefs" :token="token" :proName="proName" :job="formJob"
-                :upload="file.template" :remote="remote.template" :schema="{ formSchema, cellSchema }"
-                @monitor-value="setter.ui.handlerMonitor">
-            </mg-form>
+            <el-divider content-position="right">样式属性</el-divider>
+            <div class="design-setter-basic-ui">
+                <mg-form class="design-setter-basic-form" ref="formRefs" :token="token" :proName="proName"
+                    :job="formJob" :upload="file.template" :remote="remote.template"
+                    :schema="{ formSchema, cellSchema }" @monitor-value="setter.ui.handlerMonitor">
+                </mg-form>
+            </div>
         </template>
+        <el-empty v-else description="暂无样式属性"></el-empty>
     </div>
 </template>
 
 <style scoped lang='scss'>
+.design-setter-basic {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 
+    &-shared {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: 90px;
+        overflow: hidden;
+
+        &-matter {
+            width: 100%;
+            height: 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &-ui {
+        width: 100%;
+        height: calc(100% - 120px);
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
 </style>

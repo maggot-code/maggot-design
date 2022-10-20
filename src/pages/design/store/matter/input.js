@@ -3,17 +3,14 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:59:16
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 14:13:38
+ * @LastEditTime: 2022-10-20 17:50:03
  * @Description:
  */
 import { defineDescribe } from '../../hooks/matter/defineDescribe';
 import { defineStruct } from '../../shared/defineStruct';
 
 const uiSchemaStruct = defineStruct([
-    'col',
-    'label',
     'placeholder',
-    'tips',
     'prepend',
     'append',
     'readonly',

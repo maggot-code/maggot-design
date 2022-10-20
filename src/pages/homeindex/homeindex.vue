@@ -1,9 +1,9 @@
 <!--
- * @FilePath: /maggot-design/src/pages/homeindex/homeindex.vue
+ * @FilePath: \maggot-design\src\pages\homeindex\homeindex.vue
  * @Author: maggot-code
  * @Date: 2022-10-12 23:44:27
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-12 23:55:45
+ * @LastEditTime: 2022-10-20 17:49:09
  * @Description: 
 -->
 <script setup>

@@ -16,6 +16,12 @@ const MoldRadio = {
     uiSchema: uiSchemaStruct.setup([]),
 };
 
+const MoldDate = {
+    label: '未知控件',
+    mold: 'date',
+    uiSchema: uiSchemaStruct.setup([]),
+};
+
 export default defineDescribe(
     {
         namespace: UnknowNamespace,
@@ -25,5 +31,6 @@ export default defineDescribe(
     {
         [MoldDefault.mold]: MoldDefault,
         [MoldRadio.mold]: MoldRadio,
+        [MoldDate.mold]: MoldDate,
     }
 );

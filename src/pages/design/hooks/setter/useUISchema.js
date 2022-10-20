@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-20 09:32:40
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 10:48:16
+ * @LastEditTime: 2022-10-20 10:58:27
  * @Description:
  */
 import { watchEffect, unref, computed } from 'vue';
@@ -43,7 +43,7 @@ export function useUISchema(control) {
         const data = mapArray(struct, (item) => {
             const [key, structValue] = item;
             const activeValue = unref(template).uiSchema[key];
-            const setterValue = UISetter[key].value;
+            const setterValue = UISetter[key]?.value;
 
             const value = activeValue ?? structValue ?? setterValue;
             const cell = Object.assign({}, UISetter[key], { value });

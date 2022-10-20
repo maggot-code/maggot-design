@@ -3,15 +3,29 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:59:16
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 17:11:46
+ * @LastEditTime: 2022-10-20 11:09:57
  * @Description:
  */
 import { defineDescribe } from '../../hooks/matter/defineDescribe';
+import { defineStruct } from '../../shared/defineStruct';
+
+const uiSchemaStruct = defineStruct([
+    'col',
+    'label',
+    'placeholder',
+    'tips',
+    'prepend',
+    'append',
+    'readonly',
+    'disabled',
+    'clearable',
+    'autofocus',
+]);
 
 const MoldText = {
     label: '文本输入框',
     mold: 'text',
-    uiSchema: [
+    uiSchema: uiSchemaStruct.setup([
         ['col'],
         ['tips'],
         ['prepend'],
@@ -22,18 +36,15 @@ const MoldText = {
         ['disabled', false],
         ['clearable', false],
         ['autofocus', false],
-    ],
+    ]),
 };
 
 const MoldNumber = {
     label: '数字输入框',
     mold: 'number',
-    uiSchema: [
+    uiSchema: uiSchemaStruct.setup([
         ['col'],
         ['tips'],
-        ['prepend'],
-        ['append'],
-        ['placeholder'],
         ['label', '数字输入框'],
         ['controlsPosition', 'right'],
         ['step', 1],
@@ -44,7 +55,7 @@ const MoldNumber = {
         ['clearable', false],
         ['autofocus', false],
         ['stepStrictly', false],
-    ],
+    ]),
 };
 
 export default defineDescribe(

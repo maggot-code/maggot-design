@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 10:01:05
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 18:03:06
+ * @LastEditTime: 2022-10-20 09:55:41
  * @Description:
  */
 import { toArrayEmpty } from '@/shared/transform';
@@ -52,7 +52,11 @@ export function defineDescribe(props, molds) {
         setupMold(molds[mold])
     );
     function bindMold(value) {
-        return setupMold(molds[value] ?? molds[mold]);
+        const struct = molds[value] ?? molds[mold];
+        return {
+            struct,
+            schema: setupMold(struct),
+        };
     }
 
     return Object.assign({}, props, { schema, molds, bindMold });

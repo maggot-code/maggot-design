@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 14:37:17
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 18:35:34
+ * @LastEditTime: 2022-10-20 10:52:40
  * @Description:
  */
 import { unref } from 'vue';
@@ -19,7 +19,13 @@ function unequal(schema) {
 }
 
 export function enhanceForm(form) {
-    function update() {}
+    function update(rawSchema) {
+        const index = unref(form.schema.cellSchema).findIndex(equal(rawSchema));
+        const [_, data] = remove(rawSchema);
+        data.splice(index, 0, rawSchema);
+        form.schema.cell.setup(data);
+        return [data.length - 1, data];
+    }
 
     function append(rawSchema) {
         const field = rawSchema?.field ?? uuid();

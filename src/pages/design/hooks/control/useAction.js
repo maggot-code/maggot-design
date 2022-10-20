@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 14:21:29
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 18:31:58
+ * @LastEditTime: 2022-10-20 10:51:56
  * @Description:
  */
 import { unref } from 'vue';
@@ -14,12 +14,15 @@ export function useAction(control, indexes, active) {
 
     function moldMatter(mold) {
         const { bindMold } = control.matter.store.findMatter(
-            unref(active.template).componentName
+            unref(active.componentName)
         );
-        const moldSchema = bindMold(mold);
+        const { schema: moldSchema } = bindMold(mold);
         const schema = Object.assign({}, unref(active.template), moldSchema);
 
         preview.insert(schema);
+    }
+    function uiMatter(uiSchema) {
+        preview.update(Object.assign({}, unref(active.template), { uiSchema }));
     }
 
     function createMatter() {
@@ -37,6 +40,7 @@ export function useAction(control, indexes, active) {
 
     return {
         moldMatter,
+        uiMatter,
         createMatter,
         deleteMatter,
     };

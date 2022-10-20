@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 15:14:32
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 16:59:51
+ * @LastEditTime: 2022-10-20 10:43:09
  * @Description: 
 -->
 <script setup>
@@ -13,6 +13,7 @@ import DataField from "./DataField.vue";
 
 import { useFormFile, useFormRemote } from "@/biz/Form";
 import { useControl } from "../hooks/control";
+import { useSetter } from "../hooks/setter";
 
 const UploadKey = "";
 const UploadBaseURL = "";
@@ -24,12 +25,10 @@ const config = {
 const file = useFormFile({ config });
 const remote = useFormRemote({ config });
 const control = useControl();
+const setter = useSetter();
+console.log(setter);
 
 const { formRefs, token, proName, formJob, formSchema, cellSchema } = control.basic.template;
-
-function handlerValue(a, b, c) {
-    console.log(a, b, c);
-}
 </script>
 
 <template>
@@ -42,7 +41,7 @@ function handlerValue(a, b, c) {
         <h1>样式属性</h1>
         <mg-form class="design-setter-basic-form" ref="formRefs" :token="token" :proName="proName" :job="formJob"
             :upload="file.template" :remote="remote.template" :schema="{ formSchema, cellSchema }"
-            @monitor-value="handlerValue">
+            @monitor-value="setter.ui.handlerMonitor">
         </mg-form>
     </div>
 </template>

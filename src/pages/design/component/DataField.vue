@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 15:25:06
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 18:39:11
+ * @LastEditTime: 2022-10-20 09:20:47
  * @Description: 
 -->
 <script setup>
@@ -24,8 +24,7 @@ function setupBind() {
             <el-select class="design-setter-basic-field-item" :value="template.field" placeholder="请选择绑定字段"></el-select>
         </template>
         <template v-else>
-            <el-input class="design-setter-basic-field-item" :value="template.field" placeholder="请输入绑定字段">
-            </el-input>
+            <el-input class="design-setter-basic-field-item" :value="template.field" placeholder="请输入绑定字段"></el-input>
         </template>
 
         <el-tooltip effect="dark" content="切换绑定方式" placement="top">

@@ -3,11 +3,14 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:48:11
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 09:53:39
+ * @LastEditTime: 2022-10-20 09:22:40
  * @Description:
  */
 // 控制器
 export const ControlSymbol = Symbol('Control');
+
+// 设计器
+export const SetterSymbol = Symbol('Setter');
 
 // 预览表单
 export const PreviewFormSymbol = Symbol('PreviewForm');

@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:30:03
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 17:38:40
+ * @LastEditTime: 2022-10-20 09:22:54
  * @Description: 
 -->
 <script setup>
@@ -16,19 +16,26 @@ import { defineForm } from "@/biz/Form";
 import { defineMatter } from "./hooks/matter";
 import { defineSetter } from "./hooks/setter";
 import { defineControl } from "./hooks/control";
-import { PreviewFormSymbol, BasicSetterFormSymbol, SeniorSetterFormSymbol, ControlSymbol } from "./shared/context";
+import {
+    PreviewFormSymbol,
+    BasicSetterFormSymbol,
+    SeniorSetterFormSymbol,
+    ControlSymbol,
+    SetterSymbol
+} from "./shared/context";
 
 const preview = defineForm();
 const basic = defineForm();
 const senior = defineForm();
 const matter = defineMatter();
-const setter = defineSetter();
-const control = defineControl({ preview, basic, senior, matter, setter });
+const control = defineControl({ preview, basic, senior, matter });
+const setter = defineSetter(control);
 
 provide(PreviewFormSymbol, preview);
 provide(BasicSetterFormSymbol, basic);
 provide(SeniorSetterFormSymbol, senior);
 provide(ControlSymbol, control);
+provide(SetterSymbol, setter);
 </script>
 
 <template>

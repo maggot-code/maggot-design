@@ -3,21 +3,22 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 15:24:36
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 17:53:28
+ * @LastEditTime: 2022-10-20 09:28:24
  * @Description: 
 -->
 <script setup>
 import { useControl } from "../hooks/control";
-import { useMold } from "../hooks/setter";
+import { useSetter } from "../hooks/setter";
 
 const control = useControl();
-const { options, setup } = useMold(control);
+const setter = useSetter();
 const { template } = control.active;
+const { options } = setter.mold;
 </script>
 
 <template>
     <div class="design-setter-basic-mold">
-        <el-select size="mini" :value="template.mold" @change="setup">
+        <el-select size="mini" :value="template.mold" @change="setter.mold.setup">
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
             </el-option>
         </el-select>

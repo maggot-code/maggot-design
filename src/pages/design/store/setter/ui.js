@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 10:23:22
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 13:57:42
+ * @LastEditTime: 2022-10-20 14:12:47
  * @Description:
  */
 // 栅格布局
@@ -174,7 +174,7 @@ export default {
     append,
     noDataText,
     disabled,
-    // readonly,
+    readonly,
     clearable,
     autofocus,
 };

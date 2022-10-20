@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:59:16
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 11:09:57
+ * @LastEditTime: 2022-10-20 14:13:38
  * @Description:
  */
 import { defineDescribe } from '../../hooks/matter/defineDescribe';
@@ -50,10 +50,7 @@ const MoldNumber = {
         ['step', 1],
         ['minus', false],
         ['controls', true],
-        ['readonly', false],
         ['disabled', false],
-        ['clearable', false],
-        ['autofocus', false],
         ['stepStrictly', false],
     ]),
 };

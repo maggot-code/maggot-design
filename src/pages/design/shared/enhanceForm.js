@@ -3,11 +3,11 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 14:37:17
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 10:52:40
+ * @LastEditTime: 2022-10-20 11:33:50
  * @Description:
  */
 import { unref } from 'vue';
-import { throttle, concat } from 'lodash';
+import { debounce, concat } from 'lodash';
 import { v4 as uuid } from 'uuid';
 
 function equal(schema) {
@@ -53,7 +53,7 @@ export function enhanceForm(form) {
     }
 
     return Object.assign({}, form, {
-        update: throttle(update, 120),
+        update: debounce(update, 120),
         append,
         insert,
         remove,

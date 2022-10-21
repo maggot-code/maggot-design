@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:59:16
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 17:50:03
+ * @LastEditTime: 2022-10-21 09:31:26
  * @Description:
  */
 import { defineDescribe } from '../../hooks/matter/defineDescribe';
@@ -22,34 +22,7 @@ const uiSchemaStruct = defineStruct([
 const MoldText = {
     label: '文本输入框',
     mold: 'text',
-    uiSchema: uiSchemaStruct.setup([
-        ['col'],
-        ['tips'],
-        ['prepend'],
-        ['append'],
-        ['label', '文本输入框'],
-        ['placeholder', '请输入文本内容'],
-        ['readonly', false],
-        ['disabled', false],
-        ['clearable', false],
-        ['autofocus', false],
-    ]),
-};
-
-const MoldNumber = {
-    label: '数字输入框',
-    mold: 'number',
-    uiSchema: uiSchemaStruct.setup([
-        ['col'],
-        ['tips'],
-        ['label', '数字输入框'],
-        ['controlsPosition', 'right'],
-        ['step', 1],
-        ['minus', false],
-        ['controls', true],
-        ['disabled', false],
-        ['stepStrictly', false],
-    ]),
+    uiSchema: uiSchemaStruct.setup([]),
 };
 
 export default defineDescribe(
@@ -60,6 +33,5 @@ export default defineDescribe(
     },
     {
         [MoldText.mold]: MoldText,
-        [MoldNumber.mold]: MoldNumber,
     }
 );

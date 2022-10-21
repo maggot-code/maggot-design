@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:40:11
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 16:35:52
+ * @LastEditTime: 2022-10-21 14:56:46
  * @Description: 
 -->
 <script setup>
@@ -38,7 +38,7 @@ const setupTagColor = control.indexes.toIndex("#409EFF", "#909399");
                     <el-tag type="info" :color="setupTagColor(index)" size="small" effect="dark">
                         {{item.uiSchema.label}}
                     </el-tag>
-                    <el-button type="danger" size="mini" @click.stop="control.action.deleteMatter(item,index)">
+                    <el-button plain type="danger" size="mini" @click.stop="control.action.deleteMatter(item,index)">
                         删除
                     </el-button>
                 </div>

@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 10:22:55
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-21 14:49:27
+ * @LastEditTime: 2022-10-21 14:52:32
  * @Description:
  */
 import Unknow from './unknow';
@@ -24,10 +24,10 @@ export default [
     Radio,
     CheckBox,
     Select,
-    Time,
-    Upload,
     Cascader,
     Search,
+    Time,
+    Upload,
     Switch,
     Slider,
 ];

@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 10:23:22
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-21 14:41:48
+ * @LastEditTime: 2022-10-21 14:55:37
  * @Description:
  */
 import { formatEnums, resizeEnums, alignEnums, triggerEnums } from './enums';

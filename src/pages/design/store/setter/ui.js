@@ -3,9 +3,11 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 10:23:22
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-21 10:49:47
+ * @LastEditTime: 2022-10-21 11:31:27
  * @Description:
  */
+import { formatEnums, resizeEnums, alignEnums, triggerEnums } from './enums';
+
 // 栅格布局
 export const col = {
     componentName: 'mg-slider',
@@ -172,6 +174,82 @@ export const inactiveText = {
         placeholder: '请输入关闭时文本',
     },
     value: '',
+};
+
+// 头部图标
+export const prefixIcon = {
+    componentName: 'mg-input',
+    field: 'prefixIcon',
+    mold: 'default',
+    uiSchema: {
+        col: 24,
+        label: '头部图标',
+        placeholder: '请输入头部图标',
+    },
+};
+
+// 尾部图标
+export const suffixIcon = {
+    componentName: 'mg-input',
+    field: 'suffixIcon',
+    mold: 'default',
+    uiSchema: {
+        col: 24,
+        label: '尾部图标',
+        placeholder: '请输入尾部图标',
+    },
+};
+
+// 开关选择器 - 激活时背景色
+export const activeColor = {
+    componentName: 'mg-input',
+    field: 'activeColor',
+    mold: 'default',
+    uiSchema: {
+        col: 24,
+        label: '激活颜色',
+        placeholder: '请输入激活颜色',
+    },
+    value: '#409EFF',
+};
+
+// 开关选择器 - 禁用时背景色
+export const inactiveColor = {
+    componentName: 'mg-input',
+    field: 'inactiveColor',
+    mold: 'default',
+    uiSchema: {
+        col: 24,
+        label: '禁用颜色',
+        placeholder: '请输入禁用颜色',
+    },
+    value: '#C0CCDA',
+};
+
+// 激活状态文本颜色
+export const textColor = {
+    componentName: 'mg-input',
+    field: 'textColor',
+    mold: 'default',
+    uiSchema: {
+        col: 24,
+        label: '文本颜色',
+        placeholder: '请输入文本颜色',
+    },
+    value: '#ffffff',
+};
+
+// 激活状态填充颜色
+export const fill = {
+    componentName: 'mg-input',
+    field: 'fill',
+    mold: 'default',
+    uiSchema: {
+        col: 24,
+        label: '填充颜色',
+        placeholder: '请输入填充颜色',
+    },
+    value: '#409EFF',
 };
 
 // 输入框默认行数
@@ -655,43 +733,13 @@ export const showTooltip = {
     },
 };
 
-// 头部图标
-export const prefixIcon = {
-    componentName: 'mg-select',
-    field: 'prefixIcon',
-    mold: 'default',
-    dataSchema: {
-        enums: [],
-    },
-    uiSchema: {
-        col: 24,
-        label: '头部图标',
-        placeholder: '请选择头部图标',
-    },
-};
-
-// 尾部图标
-export const suffixIcon = {
-    componentName: 'mg-select',
-    field: 'suffixIcon',
-    mold: 'default',
-    dataSchema: {
-        enums: [],
-    },
-    uiSchema: {
-        col: 24,
-        label: '尾部图标',
-        placeholder: '请选择尾部图标',
-    },
-};
-
 // 用户缩放方式
 export const resize = {
     componentName: 'mg-select',
     field: 'resize',
     mold: 'default',
     dataSchema: {
-        enums: [],
+        enums: resizeEnums,
     },
     uiSchema: {
         col: 24,
@@ -706,7 +754,7 @@ export const format = {
     field: 'format',
     mold: 'default',
     dataSchema: {
-        enums: [],
+        enums: formatEnums,
     },
     uiSchema: {
         col: 24,
@@ -721,7 +769,7 @@ export const align = {
     field: 'align',
     mold: 'default',
     dataSchema: {
-        enums: [],
+        enums: alignEnums,
     },
     uiSchema: {
         col: 24,
@@ -736,7 +784,7 @@ export const expandTrigger = {
     field: 'expandTrigger',
     mold: 'default',
     dataSchema: {
-        enums: [],
+        enums: triggerEnums,
     },
     uiSchema: {
         col: 24,
@@ -759,6 +807,12 @@ export default {
     rangeSeparator,
     activeText,
     inactiveText,
+    prefixIcon,
+    suffixIcon,
+    activeColor,
+    inactiveColor,
+    textColor,
+    fill,
     // number 渲染器
     rows,
     maxlength,
@@ -799,8 +853,6 @@ export default {
     showStops,
     showTooltip,
     // select 渲染器
-    prefixIcon,
-    suffixIcon,
     resize,
     format,
     align,

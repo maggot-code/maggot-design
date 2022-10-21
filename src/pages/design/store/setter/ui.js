@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 10:23:22
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-21 11:31:27
+ * @LastEditTime: 2022-10-21 11:32:32
  * @Description:
  */
 import { formatEnums, resizeEnums, alignEnums, triggerEnums } from './enums';
@@ -259,7 +259,7 @@ export const rows = {
     mold: 'number',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '输入行数',
     },
     value: 2,
@@ -272,7 +272,7 @@ export const maxlength = {
     mold: 'number',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '最大长度',
     },
     value: 200,
@@ -285,7 +285,7 @@ export const minlength = {
     mold: 'number',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '最小长度',
     },
     value: 0,
@@ -298,7 +298,7 @@ export const step = {
     mold: 'float',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '计数器步长',
     },
     value: 1,
@@ -311,7 +311,7 @@ export const precision = {
     mold: 'number',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '数值精度',
     },
     value: 1,
@@ -324,7 +324,7 @@ export const min = {
     mold: 'number',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '最小值',
     },
 };
@@ -336,7 +336,7 @@ export const max = {
     mold: 'number',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '最大值',
     },
 };
@@ -348,7 +348,7 @@ export const multipleLimit = {
     mold: 'number',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '勾选最大数量',
     },
     value: 0,
@@ -361,7 +361,7 @@ export const limit = {
     mold: 'number',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '选择数量',
     },
     value: 0,
@@ -374,7 +374,7 @@ export const size = {
     mold: 'number',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '大小限制',
         minus: true,
     },
@@ -388,7 +388,7 @@ export const width = {
     mold: 'number',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '宽度限制',
     },
     value: 40,
@@ -401,7 +401,7 @@ export const disabled = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '是否禁用',
     },
 };
@@ -413,7 +413,7 @@ export const readonly = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '是否只读',
     },
 };
@@ -425,7 +425,7 @@ export const clearable = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '允许清空',
         activeText: '允许',
         inactiveText: '不允许',
@@ -439,7 +439,7 @@ export const autofocus = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '自动聚焦',
     },
 };
@@ -451,7 +451,7 @@ export const showWordLimit = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '字数统计',
         activeText: '开启',
         inactiveText: '关闭',
@@ -466,7 +466,7 @@ export const showPassword = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '密码切换',
         activeText: '开启',
         inactiveText: '关闭',
@@ -481,7 +481,7 @@ export const controls = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '控制按钮',
     },
     value: true,
@@ -494,7 +494,7 @@ export const stepStrictly = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '关联步长',
     },
 };
@@ -506,7 +506,7 @@ export const minus = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '允许负数',
         activeText: '允许',
         inactiveText: '不允许',
@@ -520,7 +520,7 @@ export const border = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '显示边框',
         activeText: '显示',
         inactiveText: '隐藏',
@@ -534,7 +534,7 @@ export const indeterminate = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '启用全选',
         activeText: '开启',
         inactiveText: '关闭',
@@ -548,7 +548,7 @@ export const multiple = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '是否多选',
     },
 };
@@ -560,7 +560,7 @@ export const collapseTags = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '折叠标签',
         activeText: '折叠',
         inactiveText: '展开',
@@ -574,7 +574,7 @@ export const timeArrowControl = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '使用箭头',
     },
 };
@@ -586,7 +586,7 @@ export const unlinkPanels = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '取消联动',
     },
 };
@@ -598,7 +598,7 @@ export const download = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '点击下载',
         activeText: '开启',
         inactiveText: '关闭',
@@ -612,7 +612,7 @@ export const percentage = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '进度条',
         activeText: '显示',
         inactiveText: '隐藏',
@@ -626,7 +626,7 @@ export const total = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '文件总大小',
     },
 };
@@ -638,7 +638,7 @@ export const current = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '上传大小',
     },
 };
@@ -650,7 +650,7 @@ export const speed = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '上传进度',
     },
 };
@@ -662,7 +662,7 @@ export const showAllLevels = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '完整路径',
     },
 };
@@ -674,7 +674,7 @@ export const checkStrictly = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '关联节点',
     },
 };
@@ -686,7 +686,7 @@ export const showInput = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '显示输入框',
     },
 };
@@ -698,7 +698,7 @@ export const showInputControls = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '输入框控件',
         activeText: '显示',
         inactiveText: '隐藏',
@@ -712,7 +712,7 @@ export const showStops = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '间隔断点',
         activeText: '显示',
         inactiveText: '隐藏',
@@ -726,7 +726,7 @@ export const showTooltip = {
     mold: 'default',
     dataSchema: {},
     uiSchema: {
-        col: 12,
+        col: 24,
         label: '节点提示',
         activeText: '开启',
         inactiveText: '关闭',

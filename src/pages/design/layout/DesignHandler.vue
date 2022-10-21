@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-21 15:01:16
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-21 15:16:21
+ * @LastEditTime: 2022-10-21 17:24:21
  * @Description: 
 -->
 <script setup>
@@ -17,7 +17,7 @@ console.log(control);
 
 <template>
     <div class="design-header">
-        <h1>design-header</h1>
+        <h1>MaggotDesign</h1>
     </div>
 </template>
 

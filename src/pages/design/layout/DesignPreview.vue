@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:40:56
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-21 16:53:02
+ * @LastEditTime: 2022-10-21 17:23:45
  * @Description: 
 -->
 <script setup>
@@ -84,7 +84,7 @@ function handlerState(key) {
         height: calc(100% - 48px);
         overflow-x: hidden;
         overflow-y: auto;
-        padding: 0 6px;
+        padding: 0 6px 6px 6px;
         box-sizing: border-box;
     }
 }

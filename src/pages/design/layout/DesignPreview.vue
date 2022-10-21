@@ -3,13 +3,13 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:40:56
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 16:42:41
+ * @LastEditTime: 2022-10-21 13:14:25
  * @Description: 
 -->
 <script setup>
-import SchemaData from "@/assets/json/form.v1.json";
+// import SchemaData from "@/assets/json/form.v1.json";
 // import SchemaData from "@/assets/json/form.v2.json";
-// import SchemaData from "@/assets/json/form.v3.json";
+import SchemaData from "@/assets/json/form.v3.json";
 
 import { onMounted } from "vue";
 import { useFormFile, useFormRemote } from "@/biz/Form";

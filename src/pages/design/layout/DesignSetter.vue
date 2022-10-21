@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 09:40:45
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 16:46:23
+ * @LastEditTime: 2022-10-21 13:10:06
  * @Description: 
 -->
 <script setup>
@@ -50,5 +50,13 @@ const setterName = ref("basic");
     padding: 12px;
     overflow: hidden;
     box-sizing: border-box;
+
+    & :deep(.el-tabs__content) {
+        height: calc(100% - 54px);
+    }
+
+    & :deep(.el-tab-pane) {
+        height: 100%;
+    }
 }
 </style>

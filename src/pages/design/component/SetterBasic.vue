@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 15:14:32
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 16:55:03
+ * @LastEditTime: 2022-10-21 13:16:12
  * @Description: 
 -->
 <script setup>
@@ -33,6 +33,7 @@ const { usable } = setter;
 
 onMounted(() => {
     control.basic.schema.form.setup({
+        labelWidth: "100px",
         labelPosition: "left"
     });
 });
@@ -64,6 +65,9 @@ onMounted(() => {
 
 <style scoped lang='scss'>
 .design-setter-basic {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -87,10 +91,13 @@ onMounted(() => {
     }
 
     &-ui {
+        flex: 1;
         width: 100%;
-        height: calc(100% - 120px);
+        height: auto;
+        padding-right: 6px;
         overflow-x: hidden;
         overflow-y: auto;
+        box-sizing: border-box;
     }
 }
 </style>

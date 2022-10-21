@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 10:23:22
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-21 11:32:32
+ * @LastEditTime: 2022-10-21 13:17:27
  * @Description:
  */
 import { formatEnums, resizeEnums, alignEnums, triggerEnums } from './enums';
@@ -186,6 +186,7 @@ export const prefixIcon = {
         label: '头部图标',
         placeholder: '请输入头部图标',
     },
+    value: '',
 };
 
 // 尾部图标
@@ -744,6 +745,7 @@ export const resize = {
     uiSchema: {
         col: 24,
         label: '缩放方式',
+        clearable: false,
     },
     value: 'vertical',
 };
@@ -759,6 +761,7 @@ export const format = {
     uiSchema: {
         col: 24,
         label: '格式化规则',
+        clearable: false,
     },
     value: 'yyyy-MM-dd HH:mm:ss',
 };
@@ -774,6 +777,7 @@ export const align = {
     uiSchema: {
         col: 24,
         label: '对齐方式',
+        clearable: false,
     },
     value: 'center',
 };
@@ -789,6 +793,7 @@ export const expandTrigger = {
     uiSchema: {
         col: 24,
         label: '展开方式',
+        clearable: false,
     },
     value: 'hover',
 };

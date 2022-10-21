@@ -3,10 +3,11 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 14:21:29
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 14:26:37
+ * @LastEditTime: 2022-10-21 13:32:57
  * @Description:
  */
 import { unref } from 'vue';
+// import { mapObject } from '@/shared/utils';
 import { enhanceForm } from '../../shared/enhanceForm';
 
 export function useAction(control, indexes, active) {
@@ -22,6 +23,7 @@ export function useAction(control, indexes, active) {
         preview.insert(schema);
     }
     function uiMatter(uiSchema) {
+        // console.log(uiSchema);
         preview.update(Object.assign({}, unref(active.template), { uiSchema }));
     }
 

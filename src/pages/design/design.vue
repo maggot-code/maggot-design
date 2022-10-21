@@ -3,16 +3,20 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:30:03
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-21 15:02:13
+ * @LastEditTime: 2022-10-21 16:40:59
  * @Description: 
 -->
 <script setup>
+import SchemaData from "@/assets/json/form.v1.json";
+// import SchemaData from "@/assets/json/form.v2.json";
+// import SchemaData from "@/assets/json/form.v3.json";
+
 import DesignHandler from "./layout/DesignHandler.vue";
 import DesignMatter from "./layout/DesignMatter.vue";
 import DesignPreview from "./layout/DesignPreview.vue";
 import DesignSetter from "./layout/DesignSetter.vue";
 
-import { provide } from "vue";
+import { provide, onMounted } from "vue";
 import { defineForm } from "@/biz/Form";
 import { defineMatter } from "./hooks/matter";
 import { defineSetter } from "./hooks/setter";
@@ -37,6 +41,10 @@ provide(BasicSetterFormSymbol, basic);
 provide(SeniorSetterFormSymbol, senior);
 provide(ControlSymbol, control);
 provide(SetterSymbol, setter);
+
+onMounted(() => {
+    preview.schema.setup(SchemaData);
+});
 </script>
 
 <template>

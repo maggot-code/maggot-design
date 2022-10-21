@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 15:14:32
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-21 13:16:12
+ * @LastEditTime: 2022-10-21 14:07:03
  * @Description: 
 -->
 <script setup>
@@ -33,7 +33,7 @@ const { usable } = setter;
 
 onMounted(() => {
     control.basic.schema.form.setup({
-        labelWidth: "100px",
+        labelWidth: "140px",
         labelPosition: "left"
     });
 });

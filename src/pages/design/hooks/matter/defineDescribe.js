@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 10:01:05
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 09:55:41
+ * @LastEditTime: 2022-10-21 13:38:36
  * @Description:
  */
 import { toArrayEmpty } from '@/shared/transform';
@@ -18,11 +18,11 @@ function setupUISchema({ uiSchema }) {
         return [key, value, item.length === 2];
     });
 }
-function setupRuleSchema() {
-    return [];
+function setupRuleSchema({ ruleSchema }) {
+    return ruleSchema ?? [];
 }
-function setupDataSchema() {
-    return {};
+function setupDataSchema({ dataSchema }) {
+    return dataSchema ?? {};
 }
 function setupLeader() {
     return {};

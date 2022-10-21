@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-10-19 10:23:22
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-21 13:17:27
+ * @LastEditTime: 2022-10-21 14:41:48
  * @Description:
  */
 import { formatEnums, resizeEnums, alignEnums, triggerEnums } from './enums';
@@ -145,7 +145,21 @@ export const rangeSeparator = {
         label: '分隔符',
         placeholder: '请输入分隔符',
     },
-    value: '',
+    value: '至',
+};
+
+// 时间选择器 - 分隔符内容
+export const separator = {
+    componentName: 'mg-input',
+    field: 'separator',
+    mold: 'default',
+    dataSchema: {},
+    uiSchema: {
+        col: 24,
+        label: '分隔符',
+        placeholder: '请输入分隔符',
+    },
+    value: '/',
 };
 
 // 开关控件 - 开启时的文本内容
@@ -364,6 +378,7 @@ export const limit = {
     uiSchema: {
         col: 24,
         label: '选择数量',
+        min: 0,
     },
     value: 0,
 };
@@ -371,13 +386,14 @@ export const limit = {
 // 文件大小限制
 export const size = {
     componentName: 'mg-input',
-    field: 'limit',
+    field: 'size',
     mold: 'number',
     dataSchema: {},
     uiSchema: {
         col: 24,
         label: '大小限制',
         minus: true,
+        min: -1,
     },
     value: -1,
 };
@@ -590,6 +606,7 @@ export const unlinkPanels = {
         col: 24,
         label: '取消联动',
     },
+    value: false,
 };
 
 // 是否点击下载
@@ -810,6 +827,7 @@ export default {
     startPlaceholder,
     endPlaceholder,
     rangeSeparator,
+    separator,
     activeText,
     inactiveText,
     prefixIcon,

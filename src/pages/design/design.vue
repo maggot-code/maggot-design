@@ -3,10 +3,11 @@
  * @Author: maggot-code
  * @Date: 2022-10-13 09:30:03
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-20 09:22:54
+ * @LastEditTime: 2022-10-21 15:02:13
  * @Description: 
 -->
 <script setup>
+import DesignHandler from "./layout/DesignHandler.vue";
 import DesignMatter from "./layout/DesignMatter.vue";
 import DesignPreview from "./layout/DesignPreview.vue";
 import DesignSetter from "./layout/DesignSetter.vue";
@@ -41,7 +42,7 @@ provide(SetterSymbol, setter);
 <template>
     <main class="design">
         <div class="design-layout design-head">
-            <section class="design-head-handler"></section>
+            <DesignHandler class="design-head-handler"></DesignHandler>
         </div>
         <div class="design-layout design-body">
             <section class="design-body-container design-body-matter">

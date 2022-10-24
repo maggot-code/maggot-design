@@ -3,7 +3,7 @@
  * @Author: maggot-code
  * @Date: 2022-07-23 23:29:33
  * @LastEditors: maggot-code
- * @LastEditTime: 2022-10-19 10:37:15
+ * @LastEditTime: 2022-10-24 18:12:53
  * @Description:
  */
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
@@ -31,7 +31,11 @@ export default defineConfig({
             deleteOriginFile: false,
         }),
         viteComponents({
-            resolvers: [ElementUiResolver()],
+            resolvers: [
+                ElementUiResolver({
+                    importStyle: 'css',
+                }),
+            ],
             dirs: [
                 'src/component',
                 'src/composable',
@@ -54,6 +58,7 @@ export default defineConfig({
         preprocessorOptions: {
             scss: {
                 additionalData: `@import "@/assets/style/var.scss";`,
+                // additionalData: `@import "element-ui/lib/theme-chalk/index.css";`,
             },
         },
     },
@@ -66,6 +71,11 @@ export default defineConfig({
             },
         },
     },
+    // server: {
+    //     hmr: {
+    //         overlay: false,
+    //     },
+    // },
     resolve: {
         alias: {
             '@': '/src',

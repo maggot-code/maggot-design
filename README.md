@@ -1,7 +1,7 @@
 # maggot-design
 
 ## Design
-![design](http://cdn.maggot.cn/image/1.png)
+![design](./public/design.png)
 
 ## Design JSON
-![design-json](http://cdn.maggot.cn/image/2.png)
+![design-json](./public/design-json.png)

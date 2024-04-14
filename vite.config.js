@@ -8,7 +8,7 @@
  */
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import vue from '@vitejs/plugin-vue2';
-import legacy from '@vitejs/plugin-legacy';
+// import legacy from '@vitejs/plugin-legacy';
 import viteComperssion from 'vite-plugin-compression';
 import viteComponents from 'unplugin-vue-components/vite';
 import { ElementUiResolver } from 'unplugin-vue-components/resolvers';
@@ -19,9 +19,9 @@ export default defineConfig({
     plugins: [
         vue(),
         splitVendorChunkPlugin(),
-        legacy({
-            targets: ['defaults', 'not ie < 9'],
-        }),
+        // legacy({
+        //     targets: ['defaults', 'not ie < 9'],
+        // }),
         viteComperssion({
             verbose: true,
             disable: false,
@@ -62,15 +62,15 @@ export default defineConfig({
             },
         },
     },
-    build: {
-        rollupOptions: {
-            output: {
-                manualChunks: {
-                    'element-ui': ['element-ui'],
-                },
-            },
-        },
-    },
+    // build: {
+    //     rollupOptions: {
+    //         output: {
+    //             manualChunks: {
+    //                 'element-ui': ['element-ui'],
+    //             },
+    //         },
+    //     },
+    // },
     // server: {
     //     hmr: {
     //         overlay: false,

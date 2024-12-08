@@ -11,13 +11,15 @@ import vue from '@vitejs/plugin-vue2';
 // import legacy from '@vitejs/plugin-legacy';
 import viteComperssion from 'vite-plugin-compression';
 import viteComponents from 'unplugin-vue-components/vite';
-import { ElementUiResolver } from 'unplugin-vue-components/resolvers';
+// import { ElementUiResolver } from 'unplugin-vue-components/resolvers';
 import { visualizer } from 'rollup-plugin-visualizer';
+import commonjs from 'vite-plugin-commonjs';
 
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
         vue(),
+        commonjs(),
         splitVendorChunkPlugin(),
         // legacy({
         //     targets: ['defaults', 'not ie < 9'],
@@ -31,11 +33,12 @@ export default defineConfig({
             deleteOriginFile: false,
         }),
         viteComponents({
-            resolvers: [
-                ElementUiResolver({
-                    importStyle: 'css',
-                }),
-            ],
+            // resolvers: [
+            //     // ElementUiResolver({
+            //     //     importStyle: 'css',
+            //     // }),
+            //     ElementUiResolver(),
+            // ],
             dirs: [
                 'src/component',
                 'src/composable',
@@ -54,14 +57,14 @@ export default defineConfig({
             brotliSize: true,
         }),
     ],
-    css: {
-        preprocessorOptions: {
-            scss: {
-                additionalData: `@import "@/assets/style/var.scss";`,
-                // additionalData: `@import "element-ui/lib/theme-chalk/index.css";`,
-            },
-        },
-    },
+    // css: {
+    //     preprocessorOptions: {
+    //         scss: {
+    //             api: 'modern',
+    //             // silenceDeprecations: ['import'],
+    //         },
+    //     },
+    // },
     // build: {
     //     rollupOptions: {
     //         output: {
@@ -76,6 +79,9 @@ export default defineConfig({
     //         overlay: false,
     //     },
     // },
+    optimizeDeps: {
+        include: ['node_modules/maggot-form/lib/maggot-form.common.js'],
+    },
     resolve: {
         alias: {
             '@': '/src',

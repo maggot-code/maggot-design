@@ -16,7 +16,7 @@ import DesignMatter from "./layout/DesignMatter.vue";
 import DesignPreview from "./layout/DesignPreview.vue";
 import DesignSetter from "./layout/DesignSetter.vue";
 
-import { provide, onMounted } from "vue";
+import {provide, onMounted } from "vue";
 import { defineForm } from "@/biz/Form";
 import { defineMatter } from "./hooks/matter";
 import { defineSetter } from "./hooks/setter";
@@ -43,6 +43,7 @@ provide(ControlSymbol, control);
 provide(SetterSymbol, setter);
 
 onMounted(() => {
+    // const SchemaData = await fetch("/form.v1.json").then(res => res.json());
     preview.schema.setup(SchemaData);
 });
 </script>

@@ -7,9 +7,9 @@
  * @Description:
  */
 import Vue from 'vue';
-import MGform from 'maggot-form';
+import MGform from 'maggot-form/lib/maggot-form.umd';
 import { setupRouter } from '@/router';
-import { Loading } from 'element-ui';
+import ElementUI from 'element-ui';
 
 import App from '@/App.vue';
 
@@ -18,8 +18,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 import '@/assets/style/index.scss';
 import 'maggot-form/lib/maggot-form.css';
 
+Vue.use(ElementUI);
 Vue.use(MGform);
-Vue.use(Loading.directive);
 
 new Vue({
     render: (h) => h(App),

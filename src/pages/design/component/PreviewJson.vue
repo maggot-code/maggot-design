@@ -11,6 +11,7 @@ import JsonView from "@/component/json-view/index.vue";
 
 import { reactive } from "vue";
 import { useControl } from "../hooks/control";
+import {Message} from "element-ui";
 
 const bindProps = reactive({
     theme: "vs-code",
@@ -22,6 +23,17 @@ const bindProps = reactive({
 
 const control = useControl();
 const { cellSchema } = control.preview.template;
+
+function copy() {
+    const text = JSON.stringify(cellSchema.value, null, 4);
+    const input = document.createElement("textarea");
+    input.value = text;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand("copy");
+    document.body.removeChild(input);
+    Message.success("复制成功");
+}
 </script>
 
 <template>
@@ -37,7 +49,9 @@ const { cellSchema } = control.preview.template;
                 <el-switch v-model="bindProps.closed"></el-switch>
             </el-form-item>
             <el-form-item label="操作">
-                <el-button type="primary" :plain="true">复制到粘贴板</el-button>
+                <el-button type="primary" :plain="true" @click="copy">
+                    复制到剪贴板
+                </el-button>
             </el-form-item>
         </el-form>
 

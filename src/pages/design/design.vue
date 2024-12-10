@@ -43,7 +43,6 @@ provide(ControlSymbol, control);
 provide(SetterSymbol, setter);
 
 onMounted(() => {
-    // const SchemaData = await fetch("/form.v1.json").then(res => res.json());
     preview.schema.setup(SchemaData);
 });
 </script>
